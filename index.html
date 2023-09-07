@@ -5,10 +5,12 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* General styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         header {
             background-color: #333;
@@ -19,6 +21,31 @@
         .container {
             padding: 20px;
         }
+
+        /* About Me Section */
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            background: #333;
+            color: #fff;
+            margin: 8px 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Projects Section */
         .project-card {
             margin-bottom: 20px;
         }
@@ -27,12 +54,12 @@
 <body>
 
     <header>
-        <h1>Ben Williams</h1>
+        <h1>Your Portfolio</h1>
     </header>
 
     <div class="container">
         <h2>About Me</h2>
-        <p>I am an experienced Full Stack Developer who specializes in HTML, CSS, the full MERN stack, python, jQuery and JavaScript. I also have extensive knowledge of Docker, Azure, AWS, and Git. In the past I have utilized Heroku for deployment as well as GitHub Pages. I currently have this domain hosted via GoDaddy and GitHub Pages as well. Overall I am very experienced with Web Development and DevOps. Feel free to get in touch if you would like to talk!</p>
+        <p>Your bio here...</p>
         
         <h2>Skills</h2>
         <ul>
@@ -55,27 +82,6 @@
                 <p class="card-text">Description of your game.</p>
             </div>
         </div>
-
-        <div class="card project-card">
-            <div class="card-body">
-                <h5 class="card-title">EVERBLAZE</h5>
-                <p class="card-text">Description of your game.</p>
-            </div>
-        </div>
-
-        <div class="card project-card">
-            <div class="card-body">
-                <h5 class="card-title">EVERBLAZE</h5>
-                <p class="card-text">Description of your game.</p>
-            </div>
-        </div>
-
-        <div class="card project-card">
-            <div class="card-body">
-                <h5 class="card-title">EVERBLAZE</h5>
-                <p class="card-text">Description of your game.</p>
-            </div>
-        </div>
         
         <!-- Add more project cards here -->
 
@@ -86,4 +92,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
