@@ -1,97 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
-.header {
-  grid-area: header;
-  background-color: #f1f1f1;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-}
-
-/* The grid container */
-.grid-container {
-  display: grid;
-  grid-template-areas: 
-    'header header header header header header' 
-    'left left middle middle right right' 
-    'footer footer footer footer footer footer';
-  /* grid-column-gap: 10px; - if you want gap between the columns */
-} 
-
-.left,
-.middle,
-.right {
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Style the left column */
-.left {
-  grid-area: left;
-}
-
-/* Style the middle column */
-.middle {
-  grid-area: middle;
-}
-
-/* Style the right column */
-.right {
-  grid-area: right;
-}
-
-/* Style the footer */
-.footer {
-  grid-area: footer;
-  background-color: #f1f1f1;
-  padding: 10px;
-  text-align: center;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  .grid-container  {
-    grid-template-areas: 
-      'header header header header header header' 
-      'left left left left left left' 
-      'middle middle middle middle middle middle' 
-      'right right right right right right' 
-      'footer footer footer footer footer footer';
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h2>CSS Template using Grid</h2>
-<p>In this example, we have created a header, three equal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
-<p>Resize the browser window to see the responsive effect.</p>
-<p><strong>Note:</strong> The Grid Layout Module is not supported in Internet Explorer or Edge 15 eand earlier versions.</p>
+    <div class="container">
+        <header class="text-center my-5">
+            <h1>Your Name</h1>
+            <p>Gameplay Programmer & Web Developer</p>
+        </header>
 
-<div class="grid-container">
-  <div class="header">
-    <h2>Header</h2>
-  </div>
-  
-  <div class="left" style="background-color:#aaa;">Column</div>
-  <div class="middle" style="background-color:#bbb;">Column</div>  
-  <div class="right" style="background-color:#ccc;">Column</div>
-  
-  <div class="footer">
-  <p>Footer</p>
-  </div>
-</div>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>
+                I am a gameplay programmer specializing in C++ and UE5. I also have experience in C#, LUA, and full MERN stack development.
+            </p>
+        </section>
 
+        <section id="skills" class="my-5">
+            <h2>Skills</h2>
+            <ul>
+                <li>C++</li>
+                <li>UE5</li>
+                <li>C#</li>
+                <li>LUA</li>
+                <li>MERN Stack</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="my-5">
+            <h2>Projects</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">EVERBLAZE</h3>
+                    <p class="card-text">A game that I am currently developing using UE5.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="my-5">
+            <h2>Contact</h2>
+            <p>Email: your.email@example.com</p>
+        </section>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
