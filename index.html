@@ -2,49 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ben Williams</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .project-card {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
+    <header>
+        <h1>Your Portfolio</h1>
+    </header>
+
     <div class="container">
-        <header class="text-center my-5">
-            <h1>Ben Williams</h1>
-            <p>Gameplay Programmer & Web Developer</p>
-        </header>
+        <h2>About Me</h2>
+        <p>Your bio here...</p>
+        
+        <h2>Skills</h2>
+        <ul>
+            <li>C++</li>
+            <li>UE5</li>
+            <li>C#</li>
+            <li>LUA</li>
+            <li>MERN Stack</li>
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>Bootstrap</li>
+            <li>CSS</li>
+        </ul>
 
-        <section id="about-me">
-            <h2>About Me</h2>
-            <p>
-                I am a gameplay programmer specializing in C++ and UE5. I also have experience in C#, LUA, and full MERN stack development.
-            </p>
-        </section>
-
-        <section id="skills" class="my-5">
-            <h2>Skills</h2>
-            <ul>
-                <li>C++</li>
-                <li>UE5</li>
-                <li>C#</li>
-                <li>LUA</li>
-                <li>MERN Stack</li>
-            </ul>
-        </section>
-
-        <section id="projects" class="my-5">
-            <h2>Projects</h2>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">EVERBLAZE</h3>
-                    <p class="card-text">A game that I am currently developing using UE5.</p>
-                </div>
+        <h2>Projects</h2>
+        
+        <div class="card project-card">
+            <div class="card-body">
+                <h5 class="card-title">EVERBLAZE</h5>
+                <p class="card-text">Description of your game.</p>
             </div>
-        </section>
+        </div>
+        
+        <!-- Add more project cards here -->
 
-        <section id="contact" class="my-5">
-            <h2>Contact</h2>
-            <p>Email: williamsben91@gmail.com</p>
-        </section>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,3 +65,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
