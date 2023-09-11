@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive meta tag -->
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,36 +27,17 @@
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
-        p {
-            line-height: 1.6;
-        }
         ul {
             list-style: none;
             padding-left: 0;
-            background-color: black;
+            background-color: #333;
             border-radius: 12px;
+            margin: 8px 0;
         }
         ul li {
-            background: #333;
             color: #fff;
-            margin: 8px 0;
             padding: 10px;
             text-align: center;
-        }
-        .project-card {
-            margin-bottom: 20px; /*add space below the card */
-            margin-top: 20px;  /*add space above the card */
-        }
-
-        @media only screen and (max-width: 768px) {
-            /* Mobile styles here */
-            header {
-                padding: 10px;
-                font-size: 24px;
-            }
-            h2 {
-                font-size: 18px;
-            }
         }
     </style>
 </head>
@@ -66,101 +47,82 @@
     </header>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="HEADSHOT.jpg" alt="Picture of Ben Williams" class="img-fluid rounded">
-            </div>
-            <div class="col-md-8">
         <h2>About Me</h2>
-        <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
-        <p>I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.</p>
-        <p>I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.</p>
-        <p>Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!</p>
-        <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap. This site is also hosted using a custom domain and web server. (TODO: add code for this website to show how it was made, put code on this page, explain code, make and impression, add code snippets for other projects)</p>
+        <img src="HEADSHOT.jpg" alt="Ben Williams" style="width: 100%; max-width: 300px;">
+        <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life.</p>
 
-         <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-start">
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
 
-        <div id="skills-section">
+        <div id="skills-section" style="display:none;">
             <h2>Skills</h2>
             <ul id="skills-list">
-                <!-- Skill buttons will be added here by JavaScript -->
+                <!-- Skills will be dynamically inserted here -->
             </ul>
         </div>
 
-        <div id="projects-section">
+        <div id="projects-section" style="display:none;">
             <h2>Projects</h2>
-            
-            <div class="card project-card">
-                <div class="card-body">
-                    <h5 class="card-title">ADD PROJECT HERE</h5>
-                    <p class="card-text">Description of project</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">ADD PROJECT HERE</h5>
-                    <p class="card-text">Description of project</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">ADD PROJECT HERE</h5>
-                    <p class="card-text">Description of project</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">ADD PROJECT HERE</h5>
-                    <p class="card-text">Description of project</p>
-                </div>
-            </div>
+            <ul id="projects-list">
+                <!-- Projects will be dynamically inserted here -->
+            </ul>
         </div>
     </div>
 
-  <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const skills = [
-    { name: 'C++', description: 'Specialized in gameplay programming, experienced in using C++ for both front-end and back-end game development.' },
-    { name: 'UE5', description: 'Proficient in Unreal Engine 5, capable of building and optimizing game mechanics and user interfaces.' },
-    { name: 'MERN', description: 'Experienced in using MongoDB, Express.js, React.js, and Node.js for full-stack web development projects.' },
-    { name: 'CSS', description: 'Skilled in CSS for styling and layout of web applications, including responsive design techniques.' },
-    { name: 'LUA', description: 'Familiar with LUA scripting for game development and automation tasks.' },
-    { name: 'HTML', description: 'Solid understanding of HTML5 for structuring web applications and integrating multimedia elements.' },
-    { name: 'Bootstrap', description: 'Proficient in using Bootstrap framework for quick and responsive web development.' },
-];
+                { name: 'C++', description: 'Specialized in gameplay programming using C++.' },
+                { name: 'UE5', description: 'Experienced in Unreal Engine 5 for game development.' },
+                { name: 'MERN', description: 'Full-stack web development with MongoDB, Express, React, and Node.js.' },
+                { name: 'CSS', description: 'Proficient in CSS for web design.' },
+                { name: 'LUA', description: 'Familiar with LUA scripting for game development.' },
+                { name: 'HTML', description: 'Strong understanding of HTML for web development.' },
+                { name: 'Bootstrap', description: 'Skilled in using Bootstrap for responsive web design.' }
+            ];
 
+            const projects = [
+                { name: 'EVERBLAZE', description: 'An exciting, immersive gaming experience built using UE5.' }
+            ];
 
             const skillsList = document.getElementById('skills-list');
+            const projectsList = document.getElementById('projects-list');
             const skillsSection = document.getElementById('skills-section');
             const projectsSection = document.getElementById('projects-section');
 
-            skillsSection.style.display = 'block';  // Initialize display property
-            projectsSection.style.display = 'block';  // Initialize display property
+            const populateList = (list, items) => {
+                items.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const itemButton = document.createElement('button');
+                    itemButton.className = 'btn btn-secondary';
+                    itemButton.textContent = item.name;
 
-            skills.forEach(skill => {
-                const skillItem = document.createElement('li');
-                const skillButton = document.createElement('button');
-                skillButton.className = 'btn btn-secondary';
-                skillButton.textContent = skill.name;
+                    const itemDescription = document.createElement('div');
+                    itemDescription.className = 'item-description';
+                    itemDescription.style.display = 'none';
+                    itemDescription.textContent = item.description;
 
-                const skillDescription = document.createElement('div');
-                skillDescription.className = 'skill-description';
-                skillDescription.style.display = 'block'; // Show by default
-                skillDescription.textContent = skill.description;
+                    itemButton.addEventListener('click', () => {
+                        itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
+                    });
 
-                skillButton.addEventListener('click', () => {
-                    skillDescription.style.display = (skillDescription.style.display === 'none') ? 'block' : 'none';
-            });
+                    listItem.appendChild(itemButton);
+                    listItem.appendChild(itemDescription);
+                    list.appendChild(listItem);
+                });
+            };
 
-                skillItem.appendChild(skillButton);
-                skillItem.appendChild(skillDescription);
-                skillsList.appendChild(skillItem);
-
-            });
+            populateList(skillsList, skills);
+            populateList(projectsList, projects);
 
             document.getElementById('toggle-skills').addEventListener('click', () => {
-                skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+                skillsSection.style.display = (skillsSection.style.display === 'none') ? 'block' : 'none';
             });
 
             document.getElementById('toggle-projects').addEventListener('click', () => {
-                projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+                projectsSection.style.display = (projectsSection.style.display === 'none') ? 'block' : 'none';
             });
         });
     </script>
