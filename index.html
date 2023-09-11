@@ -137,41 +137,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const skillsSection = document.getElementById('skills-section');
-            const projectsSection = document.getElementById('projects-section');
-            
-            document.getElementById('toggle-skills').addEventListener('click', function() {
-                skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    const skillsSection = document.getElementById('skills-section');
+    const projectsSection = document.getElementById('projects-section');
+    
+    // Existing toggle logic for the entire skills and projects sections
+    document.getElementById('toggle-skills').addEventListener('click', function() {
+        skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+    });
 
-            document.getElementById('toggle-projects').addEventListener('click', function() {
-                projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
-            });
-         // Function to toggle skill details
-            const toggleSkillDetail = (buttonId, descId) => {
-                const button = document.getElementById(buttonId);
-                const desc = document.getElementById(descId);
-                if (desc.classList.contains('hidden')) {
-                    desc.classList.remove('hidden');
-                    button.textContent = 'Show Less';
-                } else {
-                    desc.classList.add('hidden');
-                    button.textContent = 'Show More';
-                }
-            };
+    document.getElementById('toggle-projects').addEventListener('click', function() {
+        projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+    });
 
-            // Event listeners for skill buttons
-            document.getElementById('cpp-toggle').addEventListener('click', function() {
-                toggleSkillDetail('cpp-toggle', 'cpp-desc');
-            });
+    // New function to toggle visibility of individual skills
+    function toggleSkillDetail(id) {
+        const element = document.getElementById(id);
+        element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'block' : 'none';
+    }
 
-            document.getElementById('ue5-toggle').addEventListener('click', function() {
-                toggleSkillDetail('ue5-toggle', 'ue5-desc');
-            });
-
-            // Add more skill toggle event listeners here
-        });
+    // Bind new click events to skill detail toggle buttons
+    document.getElementById('cpp-toggle').addEventListener('click', () => toggleSkillDetail('cpp-desc'));
+    document.getElementById('ue5-toggle').addEventListener('click', () => toggleSkillDetail('ue5-desc'));
+    document.getElementById('csharp-toggle').addEventListener('click', () => toggleSkillDetail('csharp-desc'));
+    document.getElementById('lua-toggle').addEventListener('click', () => toggleSkillDetail('lua-desc'));
+    document.getElementById('mern-toggle').addEventListener('click', () => toggleSkillDetail('mern-desc'));
+});
     </script>
 </body>
 </html>
