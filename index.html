@@ -42,85 +42,41 @@
         .project-card {
             margin-bottom: 20px;
         }
-         .hidden {
-            display: none;
-        }
-
-         /* Style for buttons */
-        .skill-button {
-            background: #007bff;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
-
     <header>
         <h1>BEN WILLIAMS</h1>
     </header>
 
     <div class="container">
         <h2>About Me</h2>
-        <p><p>
-  Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.
-</p>
-<p>
-  I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.
-</p>
-<p>
-  I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.
-</p>
-<p>
-  Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!
-</p>
-<p>
-    <strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap.
-</p>
-</p>
-        <div class="container">
-            
-        <button id="toggle-skills">Toggle Skills</button>
+        <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
+        <p>I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.</p>
+        <p>I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.</p>
+        <p>Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!</p>
+        <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap.</p>
+
+        <div class="d-flex justify-content-between">
+            <button id="toggle-skills" class="btn btn-primary">Toggle Skills</button>
+            <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
+        </div>
+
         <div id="skills-section">
-         <h2>Skills</h2>
-           <ul>
-                <li>
-                    C++ 
-                    <button id="cpp-toggle" class="skill-button">Show More</button>
-                    <p id="cpp-desc" class="hidden">Specialized in gameplay programming, proficient in various C++ libraries and frameworks.</p>
-                </li>
-                <li>
-                    UE5
-                    <button id="ue5-toggle" class="skill-button">Show More</button>
-                    <p id="ue5-desc" class="hidden">Extensive experience in Unreal Engine 5, including blueprint scripting and creating custom game mechanics.</p>
-                </li>
-                <li>
-                    C# 
-                    <button id="csharp-toggle" class="skill-button">Show More</button>
-                    <p id="csharp-desc" class="hidden">Knowledgeable in C# programming, especially in relation to Unity game development.</p>
-                </li>
-                <li>
-                    LUA 
-                    <button id="lua-toggle" class="skill-button">Show More</button>
-                    <p id="lua-desc" class="hidden">Experience in LUA scripting for game development.</p>
-                </li>
-                <li>
-                    MERN Stack 
-                    <button id="mern-toggle" class="skill-button">Show More</button>
-                    <p id="mern-desc" class="hidden">Proficient in MongoDB, Express.js, React, and Node.js for full-stack web development.</p>
-                </li>
-                <!-- Add more skills here -->
+            <h2>Skills</h2>
+            <ul>
+                <li>C++</li>
+                <li>UE5</li>
+                <li>C#</li>
+                <li>LUA</li>
+                <li>MERN Stack</li>
+                <li>JavaScript</li>
+                <li>HTML5</li>
+                <li>Bootstrap</li>
+                <li>CSS</li>
             </ul>
         </div>
 
-        <button id="toggle-projects">Toggle Projects</button>
         <div id="projects-section">
             <h2>Projects</h2>
             
@@ -130,42 +86,23 @@
                     <p class="card-text">Description of your game.</p>
                 </div>
             </div>
-
-            <!-- Add more project cards here -->
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const skillsSection = document.getElementById('skills-section');
-    const projectsSection = document.getElementById('projects-section');
-    
-    // Existing toggle logic for the entire skills and projects sections
-    document.getElementById('toggle-skills').addEventListener('click', function() {
-        skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillsSection = document.getElementById('skills-section');
+            const projectsSection = document.getElementById('projects-section');
+            
+            document.getElementById('toggle-skills').addEventListener('click', function() {
+                skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+            });
 
-    document.getElementById('toggle-projects').addEventListener('click', function() {
-        projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
-    });
-
-    // New function to toggle visibility of individual skills
-    function toggleSkillDetail(id) {
-        const element = document.getElementById(id);
-        element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'block' : 'none';
-    }
-
-    // Bind new click events to skill detail toggle buttons
-    document.getElementById('cpp-toggle').addEventListener('click', () => toggleSkillDetail('cpp-desc'));
-    document.getElementById('ue5-toggle').addEventListener('click', () => toggleSkillDetail('ue5-desc'));
-    document.getElementById('csharp-toggle').addEventListener('click', () => toggleSkillDetail('csharp-desc'));
-    document.getElementById('lua-toggle').addEventListener('click', () => toggleSkillDetail('lua-desc'));
-    document.getElementById('mern-toggle').addEventListener('click', () => toggleSkillDetail('mern-desc'));
-});
+            document.getElementById('toggle-projects').addEventListener('click', function() {
+                projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+            });
+        });
     </script>
 </body>
 </html>
+
