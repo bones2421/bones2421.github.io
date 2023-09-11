@@ -71,20 +71,23 @@
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
 
-      <div id="skills-section" style="display: none;">
-            <h2>Skills</h2>
-            <ul id="skills-list" class="list-group">
-                <!-- Skill items will be populated here -->
-            </ul>
+    <!-- Notice that there's no inline style -->
+    <div id="skills-section">
+        <h2>Skills</h2>
+        <div class="skill-box">
+            <button class="btn btn-secondary skill-button">C++</button>
+            <div class="skill-description">Your C++ details here.</div>
         </div>
-
-        <div id="projects-section" style="display: none;">
-            <h2>Projects</h2>
-            <!-- Project cards go here -->
-        </div>
+        <!-- ... other skills ... -->
     </div>
 
-    <script>
+    <!-- Notice that there's no inline style -->
+    <div id="projects-section">
+        <!-- ... project details ... -->
+    </div>
+</div>
+
+    <script> 
       document.addEventListener('DOMContentLoaded', function() {
             const skills = [
                 { name: 'C++', description: 'Specialization in Unreal Engine 5 game development, physics simulations, and optimization.' },
@@ -98,6 +101,10 @@
             const skillsList = document.getElementById('skills-list');
             const skillsSection = document.getElementById('skills-section');
             const projectsSection = document.getElementById('projects-section');
+          
+            // Initially display the sections
+            skillsSection.style.display = 'block';
+            projectsSection.style.display = 'block';
 
          skills.forEach(skill => {
                 const skillItem = document.createElement('li');
