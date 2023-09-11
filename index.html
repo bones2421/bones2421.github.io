@@ -45,6 +45,13 @@
          .hidden {
             display: none;
         }
+
+        .skill-button {
+            background: none;
+            border: none;
+            color: blue;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -68,14 +75,20 @@
   Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!
 </p>
 </p>
+        <div class="container">
+            
         <button id="toggle-skills">Toggle Skills</button>
         <div id="skills-section">
             <h2>Skills</h2>
-            <ul>
-                <li id="cpp-skill">C++ <span id="cpp-toggle">[MORE]</span>
+           <ul>
+                <li>
+                    C++ 
+                    <button id="cpp-toggle" class="skill-button">Show More</button>
                     <p id="cpp-desc" class="hidden">Detail about your C++ skills...</p>
                 </li>
-                <li id="ue5-skill">UE5 <span id="ue5-toggle">[MORE]</span>
+                <li>
+                    UE5 
+                    <button id="ue5-toggle" class="skill-button">Show More</button>
                     <p id="ue5-desc" class="hidden">Detail about your UE5 skills...</p>
                 </li>
                 <!-- Add more skills here -->
@@ -113,19 +126,20 @@
             document.getElementById('toggle-projects').addEventListener('click', function() {
                 projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
             });
-   // New JavaScript for expandable skills
-            const toggleSkillDetail = (toggleId, descId) => {
-                const toggle = document.getElementById(toggleId);
+         // Function to toggle skill details
+            const toggleSkillDetail = (buttonId, descId) => {
+                const button = document.getElementById(buttonId);
                 const desc = document.getElementById(descId);
                 if (desc.classList.contains('hidden')) {
                     desc.classList.remove('hidden');
-                    toggle.textContent = '[-]';
+                    button.textContent = 'Show Less';
                 } else {
                     desc.classList.add('hidden');
-                    toggle.textContent = '[+]';
+                    button.textContent = 'Show More';
                 }
             };
 
+            // Event listeners for skill buttons
             document.getElementById('cpp-toggle').addEventListener('click', function() {
                 toggleSkillDetail('cpp-toggle', 'cpp-desc');
             });
@@ -133,6 +147,8 @@
             document.getElementById('ue5-toggle').addEventListener('click', function() {
                 toggleSkillDetail('ue5-toggle', 'ue5-desc');
             });
+
+            // Add more skill toggle event listeners here
         });
     </script>
 </body>
