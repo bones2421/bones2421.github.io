@@ -57,7 +57,7 @@
         <p>Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!</p>
         <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap.</p>
 
-        <div class="d-flex justify-content-start">
+         <div class="d-flex justify-content-start">
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
@@ -91,20 +91,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('DOMContentLoaded', function() {
             const skills = [
                 { name: 'C++', description: 'Your C++ details here.' },
                 { name: 'UE5', description: 'Your UE5 details here.' },
                 // ... add more skills
             ];
 
-            const skillsList = document.getElementById('skills-list');
+               const skillsList = document.getElementById('skills-list');
 
-            skills.forEach(skill => {
+                 skills.forEach(skill => {
                 const skillItem = document.createElement('li');
                 skillItem.textContent = skill.name;
                 skillItem.className = 'btn btn-secondary';
                 skillItem.addEventListener('click', () => alert(skill.description));
                 skillsList.appendChild(skillItem);
+            });
             
             document.getElementById('toggle-skills').addEventListener('click', function() {
                 skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
@@ -117,4 +119,5 @@
     </script>
 </body>
 </html>
+
 
