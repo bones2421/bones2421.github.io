@@ -5,7 +5,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
+      body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -51,45 +51,27 @@
 
     <div class="container">
         <h2>About Me</h2>
-        <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
-        <p>I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.</p>
-        <p>I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.</p>
-        <p>Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!</p>
-        <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap.</p>
+        <p><!-- Your updated bio here --></p>
 
-         <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-start mb-3">
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
 
-        <div id="skills-section">
+        <div id="skills-section" style="display: none;">
             <h2>Skills</h2>
-            <ul>
-                <li>C++</li>
-                <li>UE5</li>
-                <li>C#</li>
-                <li>LUA</li>
-                <li>MERN Stack</li>
-                <li>JavaScript</li>
-                <li>HTML5</li>
-                <li>Bootstrap</li>
-                <li>CSS</li>
+            <ul id="skills-list">
+                <!-- Skill items will go here -->
             </ul>
         </div>
 
-        <div id="projects-section">
+        <div id="projects-section" style="display: none;">
             <h2>Projects</h2>
-            
-            <div class="card project-card">
-                <div class="card-body">
-                    <h5 class="card-title">EVERBLAZE</h5>
-                    <p class="card-text">Description of your game.</p>
-                </div>
-            </div>
+            <!-- Project cards go here -->
         </div>
     </div>
 
-  <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const skills = [
                 { name: 'C++', description: 'Your C++ details here.' },
@@ -122,5 +104,3 @@
     </script>
 </body>
 </html>
-
-
