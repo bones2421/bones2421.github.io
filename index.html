@@ -42,6 +42,9 @@
         .project-card {
             margin-bottom: 20px;
         }
+         .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -65,20 +68,17 @@
   Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!
 </p>
 </p>
-
         <button id="toggle-skills">Toggle Skills</button>
         <div id="skills-section">
             <h2>Skills</h2>
             <ul>
-                <li>C++</li>
-                <li>UE5</li>
-                <li>C#</li>
-                <li>LUA</li>
-                <li>MERN Stack</li>
-                <li>JavaScript</li>
-                <li>HTML5</li>
-                <li>Bootstrap</li>
-                <li>CSS</li>
+                <li id="cpp-skill">C++ <span id="cpp-toggle">[+]</span>
+                    <p id="cpp-desc" class="hidden">Detail about your C++ skills...</p>
+                </li>
+                <li id="ue5-skill">UE5 <span id="ue5-toggle">[+]</span>
+                    <p id="ue5-desc" class="hidden">Detail about your UE5 skills...</p>
+                </li>
+                <!-- Add more skills here -->
             </ul>
         </div>
 
@@ -112,6 +112,26 @@
 
             document.getElementById('toggle-projects').addEventListener('click', function() {
                 projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+            });
+   // New JavaScript for expandable skills
+            const toggleSkillDetail = (toggleId, descId) => {
+                const toggle = document.getElementById(toggleId);
+                const desc = document.getElementById(descId);
+                if (desc.classList.contains('hidden')) {
+                    desc.classList.remove('hidden');
+                    toggle.textContent = '[-]';
+                } else {
+                    desc.classList.add('hidden');
+                    toggle.textContent = '[+]';
+                }
+            };
+
+            document.getElementById('cpp-toggle').addEventListener('click', function() {
+                toggleSkillDetail('cpp-toggle', 'cpp-desc');
+            });
+
+            document.getElementById('ue5-toggle').addEventListener('click', function() {
+                toggleSkillDetail('ue5-toggle', 'ue5-desc');
             });
         });
     </script>
