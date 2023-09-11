@@ -31,6 +31,8 @@
         ul {
             list-style: none;
             padding-left: 0;
+            background-color: black;
+            border-radius: 12px;
         }
         ul li {
             background: #333;
@@ -64,16 +66,8 @@
 
         <div id="skills-section">
             <h2>Skills</h2>
-            <ul>
-                <li>C++</li>
-                <li>UE5</li>
-                <li>C#</li>
-                <li>LUA</li>
-                <li>MERN Stack</li>
-                <li>JavaScript</li>
-                <li>HTML5</li>
-                <li>Bootstrap</li>
-                <li>CSS</li>
+            <ul id="skills-list">
+                <!-- Skill buttons will be added here by JavaScript -->
             </ul>
         </div>
 
@@ -98,17 +92,26 @@
             ];
 
             const skillsList = document.getElementById('skills-list');
-            const skillsSection = document.getElementById('skills-section');
-            const projectsSection = document.getElementById('projects-section');
 
             skills.forEach(skill => {
                 const skillItem = document.createElement('li');
                 const skillButton = document.createElement('button');
                 skillButton.className = 'btn btn-secondary';
                 skillButton.textContent = skill.name;
-                skillButton.addEventListener('click', () => alert(skill.description));
+
+                const skillDescription = document.createElement('div');
+                skillDescription.className = 'skill-description';
+                skillDescription.style.display = 'block'; // Show by default
+                skillDescription.textContent = skill.description;
+
+                skillButton.addEventListener('click', () => {
+                    skillDescription.style.display = (skillDescription.style.display === 'none') ? 'block' : 'none';
+            });
+
                 skillItem.appendChild(skillButton);
+                skillItem.appendChild(skillDescription);
                 skillsList.appendChild(skillItem);
+
             });
 
             document.getElementById('toggle-skills').addEventListener('click', () => {
