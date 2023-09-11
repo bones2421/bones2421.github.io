@@ -5,7 +5,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-      body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -42,11 +42,6 @@
         .project-card {
             margin-bottom: 20px;
         }
-
-    .skill-box {
-            background-color: black;
-            border-radius: 10px;
-        }
     </style>
 </head>
 <body>
@@ -56,70 +51,63 @@
 
     <div class="container">
         <h2>About Me</h2>
-               <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
-        
+        <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
         <p>I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.</p>
-
         <p>I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.</p>
-
         <p>Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!</p>
-
         <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap.</p>
 
-        <div class="d-flex justify-content-start mb-3">
+         <div class="d-flex justify-content-start">
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
 
-    <!-- Notice that there's no inline style -->
-    <div id="skills-section" style="display: block;">
-        <h2>Skills</h2>
-        <div class="skill-box">
-            <button class="btn btn-secondary skill-button">C++</button>
-            <div class="skill-description">Your C++ details here.</div>
+        <div id="skills-section">
+            <h2>Skills</h2>
+            <ul>
+                <li>C++</li>
+                <li>UE5</li>
+                <li>C#</li>
+                <li>LUA</li>
+                <li>MERN Stack</li>
+                <li>JavaScript</li>
+                <li>HTML5</li>
+                <li>Bootstrap</li>
+                <li>CSS</li>
+            </ul>
         </div>
-        <!-- ... other skills ... -->
+
+        <div id="projects-section">
+            <h2>Projects</h2>
+            
+            <div class="card project-card">
+                <div class="card-body">
+                    <h5 class="card-title">EVERBLAZE</h5>
+                    <p class="card-text">Description of your game.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Notice that there's no inline style -->
-   <div id="projects-section" style="display: block;">
-        <!-- ... project details ... -->
-    </div>
-</div>
-
-    <script> 
-      document.addEventListener('DOMContentLoaded', function() {
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
             const skills = [
-                { name: 'C++', description: 'Specialization in Unreal Engine 5 game development, physics simulations, and optimization.' },
-                { name: 'UE5', description: 'Experienced in game development, AI, and real-time rendering.' },
-                { name: 'C#', description: 'Utilized in Unity game development, desktop applications, and backend systems.' },
-                { name: 'LUA', description: 'Used for scripting in various game engines.' },
-                { name: 'MERN Stack', description: 'Full-stack web development using MongoDB, Express.js, React, and Node.js.' },
+                { name: 'C++', description: 'Your C++ details here.' },
+                { name: 'UE5', description: 'Your UE5 details here.' },
                 // ... add more skills
             ];
 
             const skillsList = document.getElementById('skills-list');
             const skillsSection = document.getElementById('skills-section');
             const projectsSection = document.getElementById('projects-section');
-          
-            // Initially display the sections
-            skillsSection.style.display = 'block';
-            projectsSection.style.display = 'block';
 
-         skills.forEach(skill => {
+            skills.forEach(skill => {
                 const skillItem = document.createElement('li');
-                skillItem.className = 'skill-box';
                 const skillButton = document.createElement('button');
-                const skillDescription = document.createElement('p');
-                skillDescription.style.display = 'none';
-                skillDescription.textContent = skill.description;
                 skillButton.className = 'btn btn-secondary';
                 skillButton.textContent = skill.name;
-                skillButton.addEventListener('click', () => {
-                    skillDescription.style.display = (skillDescription.style.display === 'none' || skillDescription.style.display === '') ? 'block' : 'none';
-                });
+                skillButton.addEventListener('click', () => alert(skill.description));
                 skillItem.appendChild(skillButton);
-                skillItem.appendChild(skillDescription);
                 skillsList.appendChild(skillItem);
             });
 
