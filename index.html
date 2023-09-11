@@ -46,11 +46,18 @@
             display: none;
         }
 
+         /* Style for buttons */
         .skill-button {
-            background: none;
+            background: #007bff;
             border: none;
-            color: blue;
+            color: white;
             cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -79,17 +86,17 @@
             
         <button id="toggle-skills">Toggle Skills</button>
         <div id="skills-section">
-            <h2>Skills</h2>
-           <ul>
+         <h2>Skills</h2>
+            <ul>
                 <li>
                     C++ 
                     <button id="cpp-toggle" class="skill-button">Show More</button>
-                    <p id="cpp-desc" class="hidden">Proficient in the use of functions, if statements, function delegates, API's, enumerators, arrays, formatting and commenting, action events, function calls, program authentication, data structures, hashing, and more.</p>
+                    <p id="cpp-desc" class="hidden">Detail about your C++ skills...</p>
                 </li>
                 <li>
                     UE5 
                     <button id="ue5-toggle" class="skill-button">Show More</button>
-                    <p id="ue5-desc" class="hidden">Knowledegable in game API's, back end authentication, graphics rendering, lighting, level design, prop creation, blueprint creation and management, the use of character controllers, game modes, device deployment, cooking, packaging, server replication, and more.</p>
+                    <p id="ue5-desc" class="hidden">Detail about your UE5 skills...</p>
                 </li>
                 <!-- Add more skills here -->
             </ul>
