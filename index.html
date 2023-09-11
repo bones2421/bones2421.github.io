@@ -89,30 +89,33 @@
         </div>
     </div>
 
-    <script>
+  <script>
         document.addEventListener('DOMContentLoaded', function() {
-          document.addEventListener('DOMContentLoaded', function() {
             const skills = [
                 { name: 'C++', description: 'Your C++ details here.' },
                 { name: 'UE5', description: 'Your UE5 details here.' },
                 // ... add more skills
             ];
 
-               const skillsList = document.getElementById('skills-list');
+            const skillsList = document.getElementById('skills-list');
+            const skillsSection = document.getElementById('skills-section');
+            const projectsSection = document.getElementById('projects-section');
 
-                 skills.forEach(skill => {
+            skills.forEach(skill => {
                 const skillItem = document.createElement('li');
-                skillItem.textContent = skill.name;
-                skillItem.className = 'btn btn-secondary';
-                skillItem.addEventListener('click', () => alert(skill.description));
+                const skillButton = document.createElement('button');
+                skillButton.className = 'btn btn-secondary';
+                skillButton.textContent = skill.name;
+                skillButton.addEventListener('click', () => alert(skill.description));
+                skillItem.appendChild(skillButton);
                 skillsList.appendChild(skillItem);
             });
-            
-            document.getElementById('toggle-skills').addEventListener('click', function() {
+
+            document.getElementById('toggle-skills').addEventListener('click', () => {
                 skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
             });
 
-            document.getElementById('toggle-projects').addEventListener('click', function() {
+            document.getElementById('toggle-projects').addEventListener('click', () => {
                 projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
             });
         });
