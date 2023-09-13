@@ -62,7 +62,6 @@
         width: 100%;
         }
 
-
         .item-description {
             display: none;
             text-align: center;  /* Centered text */
@@ -70,6 +69,24 @@
 
         .github-button {
             margin-top: 10px;
+        }
+
+          /* New CSS for the button layout */
+          .button-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .item-description {
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        /* Ensure the button and description don't interfere */
+        .button-container > * {
+            flex: 1;
         }
 
         @media (max-width: 768px) {
@@ -201,51 +218,49 @@
                 }
             ];
 
-
             const skillsList = document.getElementById('skills-list');
             const projectsList = document.getElementById('projects-list');
 
             const populateList = (list, items, type) => {
-        items.forEach(item => {
-        const listItem = document.createElement('li');
-        const itemWrapper = document.createElement('div');
-        itemWrapper.className = 'list-item';
+                items.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const itemWrapper = document.createElement('div');
+                    itemWrapper.className = 'list-item';
 
-        const itemButtonWrapper = document.createElement('div');
+                    const itemButtonWrapper = document.createElement('div');
+                    itemButtonWrapper.className = 'button-container'; // Added class
 
-        const itemButton = document.createElement('button');
-        itemButton.className = 'btn btn-secondary';
-        itemButton.textContent = item.name;
+                    const itemButton = document.createElement('button');
+                    itemButton.className = 'btn btn-secondary';
+                    itemButton.textContent = item.name;
 
-        const itemDescription = document.createElement('div');
-        itemDescription.className = 'item-description';
-        itemDescription.style.display = 'none';
-        itemDescription.style.textAlign = 'center';
-        itemDescription.textContent = item.description;
+                    const itemDescription = document.createElement('div');
+                    itemDescription.className = 'item-description';
+                    itemDescription.textContent = item.description;
 
-        itemButton.addEventListener('click', () => {
-            itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
-        });
+                    itemButton.addEventListener('click', () => {
+                        itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
+                    });
 
-        if (type === 'projects') {
-            const githubLink = document.createElement('a');
-            githubLink.href = item.github;
-            githubLink.textContent = 'View on GitHub';
-            githubLink.target = '_blank';
-            githubLink.className = 'btn btn-secondary github-button';
-            itemButtonWrapper.appendChild(itemButton);
-            itemButtonWrapper.appendChild(githubLink);
-            itemWrapper.appendChild(itemButtonWrapper);
-        } else {
-            itemButtonWrapper.appendChild(itemButton);
-            itemWrapper.appendChild(itemButtonWrapper);
-        }
+                    if (type === 'projects') {
+                        const githubLink = document.createElement('a');
+                        githubLink.href = item.github;
+                        githubLink.textContent = 'View on GitHub';
+                        githubLink.target = '_blank';
+                        githubLink.className = 'btn btn-secondary github-button';
+                        itemButtonWrapper.appendChild(itemButton);
+                        itemButtonWrapper.appendChild(githubLink);
+                    } else {
+                        itemButtonWrapper.appendChild(itemButton);
+                    }
 
-        itemWrapper.appendChild(itemDescription);
-        listItem.appendChild(itemWrapper);
-        list.appendChild(listItem);
-    });
-};
+                    itemWrapper.appendChild(itemButtonWrapper);
+                    itemWrapper.appendChild(itemDescription);  // Moved below buttons
+                    listItem.appendChild(itemWrapper);
+                    list.appendChild(listItem);
+                });
+            };
+            
             populateList(skillsList, skills, 'skills');
             populateList(projectsList, projects, 'projects');
 
