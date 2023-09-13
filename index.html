@@ -125,11 +125,11 @@
             ];
 
             const projects = [
-                { name: 'PORTFOLIO', description: 'This website.' },
-                { name: 'EAT DA BURGER', description: 'A full-stack web app made using JavaScript.' },
-                { name: 'FRIEND-FINDER', description: 'A web app designed to show events near you. Made as part of a group project. Utilizes API calls.' },
-                { name: 'GIF TASTIC', description: 'A web app that pulls gifs from giphy and displays them. This is one of my favorite projects. Utilizes API Calls.' },
-                { name: 'LIRI-NODE-APP', description: 'LIRI-Bot LIRI is like SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives you back data.' }
+                { name: 'PORTFOLIO', description: 'This website.', github: 'https://github.com/bones2421/bones2421.github.io' },
+                { name: 'EAT DA BURGER', description: 'A full-stack web app made using JavaScript.', github: 'https://github.com/bones2421/burger' },
+                { name: 'FRIEND-FINDER', description: 'A web app designed to show events near you. Made as part of a group project. Utilizes API calls.', github: 'https://github.com/SSAddacus/Group' },
+                { name: 'GIF TASTIC', description: 'A web app that pulls gifs from giphy and displays them. This is one of my favorite projects. Utilizes API Calls.', github: 'https://github.com/bones2421/GifTastic' },
+                { name: 'LIRI-NODE-APP', description: 'LIRI-Bot LIRI is like SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives you back data.', github: 'https://github.com/bones2421/liri-node-app' }
             ];
 
             const skillsList = document.getElementById('skills-list');
@@ -148,6 +148,14 @@
                     itemDescription.className = 'item-description';
                     itemDescription.style.display = 'none';
                     itemDescription.textContent = item.description;
+
+                    if(type === 'projects') {
+                        const githubLink = document.createElement('a');
+                        githubLink.href = item.github;
+                        githubLink.textContent = 'View on GitHub';
+                        githubLink.target = '_blank';
+                        itemDescription.appendChild(githubLink);
+                    }
 
                     itemButton.addEventListener('click', () => {
                         itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
