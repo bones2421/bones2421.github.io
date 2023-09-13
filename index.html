@@ -54,9 +54,10 @@
         }
 
         .list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        display: flex;
+        flex-direction: column; /* Added this line */
+        justify-content: flex-start;
+        align-items: flex-start;
         }
 
         .item-description {
@@ -171,7 +172,8 @@
                         itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
                     });
 
-                    itemWrapper.appendChild(itemButton);
+                    listItem.appendChild(itemButton);
+
                     if(type === 'projects') {
                         const githubLink = document.createElement('a');
                         githubLink.href = item.github;
@@ -180,10 +182,10 @@
                         githubLink.className = 'btn btn-secondary github-button';
                         itemWrapper.appendChild(githubLink);
                     }
+                    
                     itemWrapper.appendChild(itemDescription);
                     listItem.appendChild(itemWrapper);
                     list.appendChild(listItem);
-
                 });
             };
 
