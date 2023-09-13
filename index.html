@@ -61,7 +61,7 @@
         }
 
         .item-description {
-            text-align: left;
+            text-align: auto;
             max-height: 100px;  /* Set a maximum height */
             overflow-y: auto;  /* Make it scrollable */
         }
@@ -182,7 +182,7 @@
                         githubLink.className = 'btn btn-secondary github-button';
                         itemWrapper.appendChild(githubLink);
                     }
-                    
+
                     itemWrapper.appendChild(itemDescription);
                     listItem.appendChild(itemWrapper);
                     list.appendChild(listItem);
