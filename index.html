@@ -57,6 +57,16 @@
         float: right;
         }
 
+        .list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .github-button {
+         margin-left: auto;
+        }
+
         @media (max-width: 768px) {
             .bio-wrapper {
                 flex-direction: column;
@@ -148,10 +158,15 @@
                     itemButton.className = 'btn btn-secondary';
                     itemButton.textContent = item.name;
 
+                    const descriptionWrapper = document.createElement('div');
+                    descriptionWrapper.className = 'list-item';
+
                     const itemDescription = document.createElement('div');
                     itemDescription.className = 'item-description';
                     itemDescription.style.display = 'none';
                     itemDescription.textContent = item.description;
+
+                    descriptionWrapper.appendChild(itemDescription);
 
                     if(type === 'projects') {
                         const githubLink = document.createElement('a');
@@ -159,7 +174,7 @@
                         githubLink.textContent = 'View on GitHub';
                         githubLink.target = '_blank';
                         githubLink.className = 'btn btn-secondary github-button';
-                        itemDescription.appendChild(githubLink);
+                        descriptionWrapper.appendChild(githubLink);
                         }
 
                     itemButton.addEventListener('click', () => {
@@ -167,7 +182,7 @@
                     });
 
                     listItem.appendChild(itemButton);
-                    listItem.appendChild(itemDescription);
+                    listItem.appendChild(descriptionWrapper);
                     list.appendChild(listItem);
                 });
             };
