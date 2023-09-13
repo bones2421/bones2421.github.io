@@ -145,7 +145,7 @@
             const skillsSection = document.getElementById('skills-section');
             const projectsSection = document.getElementById('projects-section');
 
-            const populateList = (list, items) => {
+            const populateList = (list, items, type) => {
                 items.forEach(item => {
                     const listItem = document.createElement('li');
                     const itemButton = document.createElement('button');
@@ -175,8 +175,8 @@
                 });
             };
 
-            populateList(skillsList, skills);
-            populateList(projectsList, projects);
+            populateList(skillsList, skills, 'skills');
+            populateList(projectsList, projects, 'projects');
 
             document.getElementById('toggle-skills').addEventListener('click', () => {
                 skillsSection.style.display = (skillsSection.style.display === 'none') ? 'block' : 'none';
