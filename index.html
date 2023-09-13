@@ -124,14 +124,6 @@
                 { name: 'Bootstrap', description: 'Skilled in using Bootstrap for responsive web design.' }
             ];
 
-            if(type === 'projects') {
-                        const githubLink = document.createElement('a');
-                        githubLink.href = item.github;
-                        githubLink.textContent = ' View on GitHub';
-                        githubLink.target = '_blank';
-                        itemDescription.appendChild(githubLink);
-                    }
-
             const projects = [
                 { name: 'PORTFOLIO', description: 'This website.', github: 'https://github.com/bones2421/bones2421.github.io' },
                 { name: 'EAT DA BURGER', description: 'A full-stack web app made using JavaScript.', github: 'https://github.com/bones2421/burger' },
