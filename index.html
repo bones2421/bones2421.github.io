@@ -42,32 +42,33 @@
 
         .bio-wrapper {
             display: flex;
+            flex-wrap: wrap;
             align-items: start;
         }
 
         .bio-image {
             margin-right: 20px;
+            flex: 1 1 200px;
         }
 
         .bio-text {
-            flex: 1;
+            flex: 2 1 200px;
         }
 
         .list-item {
-        display: flex;
-        flex-direction: column; /* Added this line */
-        justify-content: flex-start;
-        align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .item-description {
-            text-align: center;
-            max-height: 100px;  /* Set a maximum height */
-            overflow-y: auto;  /* Make it scrollable */
+            display: none;
+            text-align: center;  /* Centered text */
         }
 
         .github-button {
-            margin-left: auto;
+            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
