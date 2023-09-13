@@ -164,16 +164,8 @@
                     const itemDescription = document.createElement('div');
                     itemDescription.className = 'item-description';
                     itemDescription.style.display = 'none';
+                    itemDescription.style.textAlign = 'left';
                     itemDescription.textContent = item.description;
-
-                    if(type === 'projects') {
-                        const githubLink = document.createElement('a');
-                        githubLink.href = item.github;
-                        githubLink.textContent = 'View on GitHub';
-                        githubLink.target = '_blank';
-                        githubLink.className = 'btn btn-secondary github-button ml-2';
-                        itemWrapper.appendChild(githubLink);
-                    }
 
                     itemButton.addEventListener('click', () => {
                         itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
@@ -181,17 +173,30 @@
 
                     itemWrapper.appendChild(itemButton);
                     if(type === 'projects') {
+                        const githubLink = document.createElement('a');
+                        githubLink.href = item.github;
+                        githubLink.textContent = 'View on GitHub';
+                        githubLink.target = '_blank';
+                        githubLink.className = 'btn btn-secondary github-button';
                         itemWrapper.appendChild(githubLink);
                     }
                     itemWrapper.appendChild(itemDescription);
-
                     listItem.appendChild(itemWrapper);
                     list.appendChild(listItem);
+
                 });
             };
 
             populateList(skillsList, skills, 'skills');
             populateList(projectsList, projects, 'projects');
+
+            document.getElementById('toggle-skills').addEventListener('click', () => {
+                skillsSection.style.display = (skillsSection.style.display === 'none') ? 'block' : 'none';
+            });
+
+            document.getElementById('toggle-projects').addEventListener('click', () => {
+                projectsSection.style.display = (projectsSection.style.display === 'none') ? 'block' : 'none';
+            });
         });
     </script>
 </body>
