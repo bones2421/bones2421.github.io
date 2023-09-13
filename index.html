@@ -53,6 +53,10 @@
             flex: 1;
         }
 
+        .github-button {
+        float: right;
+        }
+
         @media (max-width: 768px) {
             .bio-wrapper {
                 flex-direction: column;
@@ -154,7 +158,7 @@
                         githubLink.href = item.github;
                         githubLink.textContent = 'View on GitHub';
                         githubLink.target = '_blank';
-                        githubLink.className = 'btn btn-secondary';
+                        githubLink.className = 'btn btn-secondary github-button';
                         itemDescription.appendChild(githubLink);
                         }
 
