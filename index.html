@@ -56,18 +56,19 @@
         }
 
         .list-item {
-            display: flex;
+             display: flex;
+            flex-direction: column; /* Makes it vertical */
             align-items: center;
-            justify-content: center; /* This is added for center-alignment */
             width: 100%;
         }
 
-
-
         .item-description {
             display: none;
-            text-align: center;  /* Centered text */
+            text-align: center;
+            width: 100%;  /* Ensures that it takes up full width */
+            margin-top: 10px; /* Adds a little space between the button and description */
         }
+
 
         .github-button {
             margin-top: 10px;
