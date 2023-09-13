@@ -56,11 +56,13 @@
         }
 
         .list-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* This is added for center-alignment */
+            width: 100%;
         }
+
+
 
         .item-description {
             display: none;
@@ -260,7 +262,7 @@
                     list.appendChild(listItem);
                 });
             };
-            
+
             populateList(skillsList, skills, 'skills');
             populateList(projectsList, projects, 'projects');
 
