@@ -154,8 +154,9 @@
                         githubLink.href = item.github;
                         githubLink.textContent = 'View on GitHub';
                         githubLink.target = '_blank';
+                        githubLink.className = 'btn btn-secondary';
                         itemDescription.appendChild(githubLink);
-                    }
+                        }
 
                     itemButton.addEventListener('click', () => {
                         itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
