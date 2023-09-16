@@ -260,6 +260,7 @@
                     const itemDescription = document.createElement('div');
                     itemDescription.className = 'item-description';
                     itemDescription.textContent = item.description;
+                    itemDescription.style.display = 'none';
 
                     itemButton.addEventListener('click', () => {
                         itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
