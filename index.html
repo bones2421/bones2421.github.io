@@ -332,6 +332,36 @@
             populateList(skillsList, skills, 'skills');
             populateList(projectsList, projects, 'projects');
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById('contact-form');
+  const submitButton = document.getElementById('submit-button');
+
+  submitButton.addEventListener('click', function() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    fetch('http://localhost:3000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, message })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        alert('Email sent successfully');
+      } else {
+        alert('Failed to send email');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  });
+});
     </script>    
 </body>
 </html>
