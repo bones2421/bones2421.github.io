@@ -175,7 +175,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             const skillsList = document.getElementById('skills-list');
             const projectsList = document.getElementById('projects-list');
-            
+
+             // Get references to the skills and projects sections
+    const skillsSection = document.getElementById('skills-section');
+    const projectsSection = document.getElementById('projects-section');
+
+            document.getElementById('toggle-skills').addEventListener('click', () => {
+        skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+    });
+
+    document.getElementById('toggle-projects').addEventListener('click', () => {
+        projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+    });
+
             const skills = [
                 { 
                     name: 'C++', 
@@ -243,14 +255,6 @@
                     github: 'https://github.com/bones2421/liri-node-app' 
                 }
             ];
-
-            document.getElementById('toggle-skills').addEventListener('click', () => {
-        skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
-    });
-
-    document.getElementById('toggle-projects').addEventListener('click', () => {
-        projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
-    });
 
             const populateList = (list, items, type) => {
                 items.forEach(item => {
