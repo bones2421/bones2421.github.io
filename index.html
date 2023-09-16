@@ -173,6 +173,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const skillsList = document.getElementById('skills-list');
+            const projectsList = document.getElementById('projects-list');
+            
             const skills = [
                 { 
                     name: 'C++', 
@@ -241,8 +244,13 @@
                 }
             ];
 
-            const skillsList = document.getElementById('skills-list');
-            const projectsList = document.getElementById('projects-list');
+            document.getElementById('toggle-skills').addEventListener('click', () => {
+        skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+    });
+
+    document.getElementById('toggle-projects').addEventListener('click', () => {
+        projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+    });
 
             const populateList = (list, items, type) => {
                 items.forEach(item => {
@@ -278,10 +286,11 @@
                         itemButtonWrapper.appendChild(itemButton);
                     }
 
-                    itemWrapper.appendChild(itemButtonWrapper);
-                    itemWrapper.appendChild(itemDescription);  // Moved below buttons
-                    listItem.appendChild(itemWrapper);
-                    list.appendChild(listItem);
+                    itemButtonWrapper.appendChild(itemButton);
+            itemWrapper.appendChild(itemButtonWrapper);
+            itemWrapper.appendChild(itemDescription);
+            listItem.appendChild(itemWrapper);
+            list.appendChild(listItem);
                 });
             };
 
