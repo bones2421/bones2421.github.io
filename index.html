@@ -173,21 +173,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Get references to lists and sections
             const skillsList = document.getElementById('skills-list');
             const projectsList = document.getElementById('projects-list');
-
-             // Get references to the skills and projects sections
-    const skillsSection = document.getElementById('skills-section');
-    const projectsSection = document.getElementById('projects-section');
-
+            const skillsSection = document.getElementById('skills-section');
+            const projectsSection = document.getElementById('projects-section');
+    
+            // Toggle event listeners
             document.getElementById('toggle-skills').addEventListener('click', () => {
-        skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
-    });
-
-    document.getElementById('toggle-projects').addEventListener('click', () => {
-        projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
-    });
-
+                skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+            });
+    
+            document.getElementById('toggle-projects').addEventListener('click', () => {
+                projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+            });
+    
             const skills = [
                 { 
                     name: 'C++', 
@@ -255,60 +255,51 @@
                     github: 'https://github.com/bones2421/liri-node-app' 
                 }
             ];
-
+    
+            // Function to populate lists
             const populateList = (list, items, type) => {
                 items.forEach(item => {
                     const listItem = document.createElement('li');
                     const itemWrapper = document.createElement('div');
                     itemWrapper.className = 'list-item';
-
+    
                     const itemButtonWrapper = document.createElement('div');
-                    itemButtonWrapper.className = 'button-container'; // Added class
-
+                    itemButtonWrapper.className = 'button-container';
+    
                     const itemButton = document.createElement('button');
                     itemButton.className = 'btn btn-secondary shared-button';
                     itemButton.textContent = item.name;
-
+    
                     const itemDescription = document.createElement('div');
                     itemDescription.className = 'item-description';
                     itemDescription.textContent = item.description;
                     itemDescription.style.display = 'none';
-
+    
                     itemButton.addEventListener('click', () => {
                         itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
                     });
-
+    
                     if (type === 'projects') {
                         const githubLink = document.createElement('a');
                         githubLink.href = item.github;
                         githubLink.textContent = 'GITHUB';
                         githubLink.target = '_blank';
                         githubLink.className = 'btn btn-secondary github-button shared-button';
-                        itemButtonWrapper.appendChild(itemButton);
                         itemButtonWrapper.appendChild(githubLink);
-                    } else {
-                        itemButtonWrapper.appendChild(itemButton);
                     }
-
+                    
                     itemButtonWrapper.appendChild(itemButton);
-            itemWrapper.appendChild(itemButtonWrapper);
-            itemWrapper.appendChild(itemDescription);
-            listItem.appendChild(itemWrapper);
-            list.appendChild(listItem);
+                    itemWrapper.appendChild(itemButtonWrapper);
+                    itemWrapper.appendChild(itemDescription);
+                    listItem.appendChild(itemWrapper);
+                    list.appendChild(listItem);
                 });
             };
-
+    
+            // Populate the skills and projects lists
             populateList(skillsList, skills, 'skills');
             populateList(projectsList, projects, 'projects');
-
-            document.getElementById('toggle-skills').addEventListener('click', () => {
-                skillsSection.style.display = (skillsSection.style.display === 'none') ? 'block' : 'none';
-            });
-
-            document.getElementById('toggle-projects').addEventListener('click', () => {
-                projectsSection.style.display = (projectsSection.style.display === 'none') ? 'block' : 'none';
-            });
         });
-    </script>
+    </script>    
 </body>
 </html>
