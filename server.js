@@ -24,7 +24,7 @@ app.post('/send-email', async (req, res) => {
 
   let mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: 'edgegames23@gmail.com',
     subject: `Contact Form Submission from ${name}`,
     text: `From: ${name} (${email})\n\nMessage:\n${message}`,
   };
