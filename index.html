@@ -6,8 +6,6 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <button class="btn btn-secondary project-button">Project Name</button>
-    <a href="#" class="btn btn-secondary github-button project-button">View on GitHub</a>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -105,9 +103,13 @@
 
         .project-button,
         .github-button {
-             height: 50px; 
-            line-height: 50px;  /* Match this to the height */
+            height: 50px; 
+            line-height: 50px;  
             vertical-align: middle;
+        }
+
+        .item-button-wrapper {
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -126,6 +128,9 @@
     <header>
         <h1>BEN WILLIAMS</h1>
     </header>
+
+    <button class="btn btn-secondary project-button">Project Name</button>
+    <a href="#" class="btn btn-secondary github-button project-button">View on GitHub</a>
 
     <div class="container">
         <h2>About Me</h2>
