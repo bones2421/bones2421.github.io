@@ -238,22 +238,16 @@
     // Get references to lists and sections
     const skillsList = document.getElementById('skills-list');
     const projectsList = document.getElementById('projects-list');
+    const toggleSkillsButton = document.getElementById('toggle-skills');
+    const toggleProjectsButton = document.getElementById('toggle-projects');
     
     // Toggle event listeners
-    document.getElementById('toggle-skills').addEventListener('click', () => {
-        if (skillsList.style.display === 'none' || skillsList.style.display === '') {
-            skillsList.style.display = 'block';
-        } else {
-            skillsList.style.display = 'none';
-        }
+    toggleSkillsButton.addEventListener('click', () => {
+        skillsList.classList.toggle('hide'); // Toggle the 'hide' class
     });
 
-    document.getElementById('toggle-projects').addEventListener('click', () => {
-        if (projectsList.style.display === 'none' || projectsList.style.display === '') {
-            projectsList.style.display = 'block';
-        } else {
-            projectsList.style.display = 'none';
-        }
+    toggleProjectsButton.addEventListener('click', () => {
+        projectsList.classList.toggle('hide'); // Toggle the 'hide' class
     });
             const skills = [
                 { 
