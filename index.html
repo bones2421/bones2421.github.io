@@ -184,24 +184,24 @@
     </div>
 
     <!-- Adding contact form in a new section -->
-<div class="container" id="contact-section">
-    <h2>Contact Me</h2>
-    <form>
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email">
-        </div>
-        <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea class="form-control" id="message"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+    <div class="container" id="contact-section">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="_replyto">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+        </form>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -342,27 +342,29 @@
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-   // Send form data to Formspree
-   fetch('https://formspree.io/f/mjvqewyv', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, email, message }),
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.status === 'success') {
-                            alert('Email sent successfully');
-                        } else {
-                            alert('Failed to send email');
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-            });
-        });
+      // Send form data to Formspree
+    fetch('https://formspree.io/f/mjvqewyv', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name, email: email, message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            alert("Your message has been sent successfully!");
+            form.reset();
+        } else {
+            alert("An error occurred. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error("Error sending message:", error);
+        alert("An error occurred. Please try again.");
+    });
+  });
+});
     </script>    
 </body>
 </html>
