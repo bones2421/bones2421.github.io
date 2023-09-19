@@ -234,31 +234,27 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get references to lists and sections
-            const skillsList = document.getElementById('skills-list');
-            const projectsList = document.getElementById('projects-list');
-            const skillsSection = document.getElementById('skills-section');
-            const projectsSection = document.getElementById('projects-section');
+       document.addEventListener('DOMContentLoaded', function() {
+    // Get references to lists and sections
+    const skillsList = document.getElementById('skills-list');
+    const projectsList = document.getElementById('projects-list');
     
-            // Toggle event listeners
-            document.getElementById('toggle-skills').addEventListener('click', () => {
-    if (skillsSection.style.display === 'none' || skillsSection.style.display === '') {
-        skillsSection.style.display = 'block';
-    } else {
-        skillsSection.style.display = 'none';
-    }
-});
+    // Toggle event listeners
+    document.getElementById('toggle-skills').addEventListener('click', () => {
+        if (skillsList.style.display === 'none' || skillsList.style.display === '') {
+            skillsList.style.display = 'block';
+        } else {
+            skillsList.style.display = 'none';
+        }
+    });
 
-document.getElementById('toggle-projects').addEventListener('click', () => {
-    if (projectsSection.style.display === 'none' || projectsSection.style.display === '') {
-        projectsSection.style.display = 'block';
-    } else {
-        projectsSection.style.display = 'none';
-    }
-});
-
-    
+    document.getElementById('toggle-projects').addEventListener('click', () => {
+        if (projectsList.style.display === 'none' || projectsList.style.display === '') {
+            projectsList.style.display = 'block';
+        } else {
+            projectsList.style.display = 'none';
+        }
+    });
             const skills = [
                 { 
                     name: 'C++', 
