@@ -72,7 +72,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
         }
         
         .item-description {
@@ -138,6 +137,18 @@
             padding: 15px;
             text-align: center;
         }
+
+        /* Add a background color change on tap for the skills and projects buttons */
+.btn-secondary.shared-button {
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Add a smooth transition effect */
+}
+
+.btn-secondary.shared-button:hover,
+.btn-secondary.shared-button:active {
+    background-color: #007bff; /* Change the background color on tap or hover */
+}
+
 
         @media (max-width: 768px) {
             .bio-wrapper {
