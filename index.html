@@ -243,12 +243,21 @@
     
             // Toggle event listeners
             document.getElementById('toggle-skills').addEventListener('click', () => {
-                skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
-            });
-    
-            document.getElementById('toggle-projects').addEventListener('click', () => {
-                projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
-            });
+    if (skillsSection.style.display === 'none' || skillsSection.style.display === '') {
+        skillsSection.style.display = 'block';
+    } else {
+        skillsSection.style.display = 'none';
+    }
+});
+
+document.getElementById('toggle-projects').addEventListener('click', () => {
+    if (projectsSection.style.display === 'none' || projectsSection.style.display === '') {
+        projectsSection.style.display = 'block';
+    } else {
+        projectsSection.style.display = 'none';
+    }
+});
+
     
             const skills = [
                 { 
