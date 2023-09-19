@@ -333,38 +333,38 @@
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById('contact-form');
-  const submitButton = document.getElementById('submit-button');
+            const form = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit-button');
 
-  submitButton.addEventListener('click', function() {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default form submission
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
 
-      // Send form data to Formspree
-    fetch('https://formspree.io/f/mjvqewyv', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name: name, email: email, message: message })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            alert("Your message has been sent successfully!");
-            form.reset();
-        } else {
-            alert("An error occurred. Please try again.");
-        }
-    })
-    .catch(error => {
-        console.error("Error sending message:", error);
-        alert("An error occurred. Please try again.");
-    });
-  });
-});
+                // Send form data to Formspree
+                fetch('https://formspree.io/f/mjvqewyv', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: name, email: email, message: message })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        alert("Your message has been sent successfully!");
+                        form.reset();
+                    } else {
+                        alert("An error occurred. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error sending message:", error);
+                    alert("An error occurred. Please try again.");
+                });
+            });
+        });
     </script>    
 </body>
 </html>
