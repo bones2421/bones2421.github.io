@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
+        @media (max-width: 768px) {
+            .bio-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bio-image {
+            margin-right: 20px;
+            flex: 1 1 200px;
+            max-width: 100%; /* Set maximum width to 100% */
+            max-height: auto; /* Automatically adjust height */
+            }
+            body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -138,17 +149,6 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .bio-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-            .bio-image {
-            margin-right: 20px;
-            flex: 1 1 200px;
-            max-width: 100%; /* Set maximum width to 100% */
-            max-height: auto; /* Automatically adjust height */
-            }
         }
     </style>
 </head>
