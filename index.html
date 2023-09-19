@@ -1,65 +1,370 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .button {
-            background-color: #4CAF50;
-            border: none;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
             color: white;
-            padding: 15px 32px;
+            padding: 15px;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
+        }
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            background-color: #333;
+            border-radius: 12px;
+            margin: 8px 0;
+        }
+        ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .bio-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+        }
+
+        .bio-image {
+            margin-right: 20px;
+            flex: 1 1 200px;
+        }
+
+        .bio-text {
+            flex: 2 1 200px;
+        }
+
+        .list-item {
+             display: flex;
+            flex-direction: column; /* Makes it vertical */
+            align-items: center;
+            width: 100%;
+        }
+
+        .item-description {
+            display: none;
+            text-align: center;
+            width: 100%;  /* Ensures that it takes up full width */
+            margin-top: 10px; /* Adds a little space between the button and description */
+        }
+
+        .github-button {
+            margin-left: 10px;
+        }
+
+          /* New CSS for the button layout */
+          .button-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
         
-        /* You can then extend it for individual buttons if needed */
-        .button.special {
-            background-color: #555;
+        .item-description {
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        /* Ensure the button and description don't interfere */
+        .button-container > * {
+            flex: 1;
+        }
+
+        .shared-button {
+            width: 150px;
+            height: 50px;
+            font-size: 15px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .project-button,
+        .github-button {
+            height: 50px; 
+            line-height: 50px;  
+            vertical-align: middle;
+        }
+
+        .item-button-wrapper {
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem; /* Spacing between buttons */
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .bio-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bio-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>My Portfolio</h1>
+        <h1>BEN WILLIAMS</h1>
     </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Some text about me.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <input type="text" id="name" name="name" placeholder="Your name..">
-                <input type="text" id="email" name="email" placeholder="Your email..">
-                <input type="submit" value="Submit" class="button">
-            </form>
-        </section>
-    </main>
+
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="bio-wrapper">
+            <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image" width="300">
+            <div class="bio-text">
+
+        <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.
+
+            I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.
+            
+            I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.
+            
+            Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!
+
+            <p>
+            <strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap. It is hosted using a custom domain.
+            </p>
+
+            </p>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-start">
+            <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
+            <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
+        </div>
+
+        <div id="skills-section" style="display:block;">
+            <h2>Skills</h2>
+            <ul id="skills-list">
+                <!-- Skills will be dynamically inserted here -->
+            </ul>
+        </div>
+
+        <div id="projects-section" style="display:block;">
+            <h2>Projects</h2>
+            <ul id="projects-list">
+                <!-- Projects will be dynamically inserted here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Adding contact form in a new section -->
+    <div class="container" id="contact-section">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="_replyto">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+        </form>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Your DOM manipulations and event listener code here
-            const form = document.getElementById("contact-form");
+            // Get references to lists and sections
+            const skillsList = document.getElementById('skills-list');
+            const projectsList = document.getElementById('projects-list');
+            const skillsSection = document.getElementById('skills-section');
+            const projectsSection = document.getElementById('projects-section');
+    
+            // Toggle event listeners
+            document.getElementById('toggle-skills').addEventListener('click', () => {
+                skillsSection.style.display = (skillsSection.style.display === 'none' || skillsSection.style.display === '') ? 'block' : 'none';
+            });
+    
+            document.getElementById('toggle-projects').addEventListener('click', () => {
+                projectsSection.style.display = (projectsSection.style.display === 'none' || projectsSection.style.display === '') ? 'block' : 'none';
+            });
+    
+            const skills = [
+                { 
+                    name: 'C++', 
+                    description: 'Advanced expertise in C++ for gameplay programming, enabling the creation of efficient, high-performance game logic and features.' 
+                },
 
-            form.addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevents default form submission
+                { 
+                    name: 'UE5', 
+                    description: 'In-depth knowledge of Unreal Engine 5, capable of developing visually stunning and interactive 3D games with advanced mechanics.' 
+                },
 
-                const formData = new FormData(form);
-                fetch('/submit-form', {
+                { 
+                    name: 'MERN', 
+                    description: 'Proficient in full-stack web development using the MERN stack, encompassing database design with MongoDB, server-side scripting with Node.js and Express, and front-end development with React.' 
+                },
+                { 
+                    name: 'CSS', 
+                    description: 'Solid experience in CSS for creating visually appealing and responsive web designs, including the utilization of pre-processors like SASS.' 
+                },
+
+                { 
+                    name: 'LUA', 
+                    description: 'Competency in LUA scripting for game development, facilitating the implementation of custom game mechanics and modding capabilities.' 
+                },
+
+                { 
+                    name: 'HTML', 
+                    description: 'In-depth understanding of HTML5 for structuring web content, including semantic elements and APIs for extended functionalities.' 
+                },
+
+                { 
+                    name: 'BOOTSTRAP', 
+                    description: 'Proficient in leveraging Bootstrap for efficient and responsive web design, minimizing development time without sacrificing quality.' 
+                }
+            ];
+
+            const projects = [
+                { 
+                    name: 'PORTFOLIO', 
+                    description: 'A personalized website built from scratch to showcase my skills and projects, utilizing the MERN stack along with HTML5, CSS, and Bootstrap.', 
+                    github: 'https://github.com/bones2421/bones2421.github.io' 
+                },
+                
+                { 
+                    name: 'EAT DA BURGER', 
+                    description: 'A responsive full-stack web application for tracking burgers to be eaten, leveraging JavaScript, MySQL, and custom-built ORM.', 
+                    github: 'https://github.com/bones2421/burger' 
+                },
+
+                { 
+                    name: 'FRIEND-FINDER', 
+                    description: 'A socially-focused web application that finds and displays nearby events based on user preferences. Developed as part of a collaborative effort, the app makes extensive use of API calls for data retrieval.', 
+                    github: 'https://github.com/SSAddacus/Group' 
+                },
+
+                { 
+                    name: 'GIF TASTIC', 
+                    description: 'An interactive web application that dynamically fetches and displays GIFs based on user queries, using the Giphy API. Among my most enjoyable projects to develop.', 
+                    github: 'https://github.com/bones2421/GifTastic' 
+                },
+
+                { 
+                    name: 'LIRI-NODE-APP', 
+                    description: 'A command-line application functioning as a text-based assistant, similar to Apple\'s SIRI. Built using Node.js, LIRI interprets text commands to provide various forms of information.', 
+                    github: 'https://github.com/bones2421/liri-node-app' 
+                }
+            ];
+    
+            // Function to populate lists
+            const populateList = (list, items, type) => {
+                items.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const itemWrapper = document.createElement('div');
+                    itemWrapper.className = 'list-item';
+    
+                    const itemButtonWrapper = document.createElement('div');
+                    itemButtonWrapper.className = 'button-container';
+    
+                    const itemButton = document.createElement('button');
+                    itemButton.className = 'btn btn-secondary shared-button';
+                    itemButton.textContent = item.name;
+    
+                    const itemDescription = document.createElement('div');
+                    itemDescription.className = 'item-description';
+                    itemDescription.textContent = item.description;
+                    itemDescription.style.display = 'none';
+    
+                    itemButton.addEventListener('click', () => {
+                        itemDescription.style.display = (itemDescription.style.display === 'none') ? 'block' : 'none';
+                    });
+    
+                    if (type === 'projects') {
+                        const githubLink = document.createElement('a');
+                        githubLink.href = item.github;
+                        githubLink.textContent = 'GITHUB';
+                        githubLink.target = '_blank';
+                        githubLink.className = 'btn btn-secondary github-button shared-button';
+                        itemButtonWrapper.appendChild(githubLink);
+                    }
+                    
+                    itemButtonWrapper.appendChild(itemButton);
+                    itemWrapper.appendChild(itemButtonWrapper);
+                    itemWrapper.appendChild(itemDescription);
+                    listItem.appendChild(itemWrapper);
+                    list.appendChild(listItem);
+                });
+            };
+    
+            // Populate the skills and projects lists
+            populateList(skillsList, skills, 'skills');
+            populateList(projectsList, projects, 'projects');
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit-button');
+
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default form submission
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                // Send form data to Formspree
+                fetch('https://formspree.io/f/mjvqewyv', {
                     method: 'POST',
-                    body: formData
-                }).then(response => response.json())
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: name, email: email, message: message })
+                })
+                .then(response => response.json())
                 .then(data => {
-                    console.log(data);
-                }).catch(error => {
-                    console.error(error);
+                    if (data.status === "success") {
+                        alert("Your message has been sent successfully!");
+                        form.reset();
+                    } else {
+                        alert("An error occurred. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error sending message:", error);
+                    alert("An error occurred. Please try again.");
                 });
             });
         });
-    </script>
+    </script>    
 </body>
 </html>
