@@ -48,6 +48,8 @@
         .bio-image {
             margin-right: 20px;
             flex: 1 1 200px;
+            max-width: 100%; /* Add this line to limit the width */
+            max-height: 300px; /* Add this line to limit the height */
         }
 
         .bio-text {
@@ -169,7 +171,7 @@
         <section>
             <h2>About Me</h2>
             <div class="bio-wrapper">
-                <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image" style="max-width: 100%;">
+                <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image">
                 <div class="bio-text">
                     <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
                     <p>I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.</p>
