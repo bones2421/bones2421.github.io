@@ -122,6 +122,27 @@
             align-items: center;
         }
 
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .bio-wrapper {
                 flex-direction: column;
@@ -140,7 +161,12 @@
         <h1>BEN WILLIAMS</h1>
     </header>
 
-    <div class="container">
+    <nav>
+        <!-- Navigation links can be added here -->
+    </nav>
+
+<main>
+    <section>
         <h2>About Me</h2>
         <div class="bio-wrapper">
             <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image" width="300">
@@ -162,28 +188,34 @@
             </div>
         </div>
 
+    </section>
+
         <div class="d-flex justify-content-start">
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
 
-        <div id="skills-section" style="display:block;">
+        <section>
             <h2>Skills</h2>
             <ul id="skills-list">
                 <!-- Skills will be dynamically inserted here -->
             </ul>
-        </div>
+        </section>
 
-        <div id="projects-section" style="display:block;">
+        <section>
             <h2>Projects</h2>
             <ul id="projects-list">
                 <!-- Projects will be dynamically inserted here -->
             </ul>
-        </div>
-    </div>
+        </section>
+</main>
+
+<footer>
+    <!-- Footer content can be added here -->
+</footer>
 
     <!-- Adding contact form in a new section -->
-    <div class="container" id="contact-section">
+    <section id="contact-section">
         <h2>Contact Me</h2>
         <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
             <div class="form-group">
@@ -200,7 +232,7 @@
             </div>
             <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
         </form>
-    </div>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
