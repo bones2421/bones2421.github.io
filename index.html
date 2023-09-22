@@ -106,10 +106,32 @@
             text-align: center;
         }
 
+      /* CSS for spacing */
         .button-container {
             display: flex;
-            gap: 1rem; /* Spacing between buttons */
+            justify-content: center;
+            align-items: center;
+            gap: 1rem; /* Adjust the gap as needed for spacing */
         }
+
+        /* Style for the "View My Resume" button */
+        #view-resume {
+            width: 150px;
+            height: 50px;
+            font-size: 15px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 50px; /* Vertical alignment */
+        }
+
+        /* Add a background color change on tap or hover for the button */
+        #view-resume:hover,
+        #view-resume:active {
+            background-color: #007bff;
+        }
+
 
         .btn {
             display: flex;
