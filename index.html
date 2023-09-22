@@ -404,14 +404,14 @@
             const form = document.getElementById('contact-form');
             const submitButton = document.getElementById('submit-button');
 
+        document.getElementById('view-resume').addEventListener('click', function() {
+            window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
+        });
+
             submitButton.addEventListener('click', function(event) {
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
-
-        document.getElementById('view-resume').addEventListener('click', function() {
-            window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
-        });
 
 
                 // Send form data to Formspree
