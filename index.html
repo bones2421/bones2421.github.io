@@ -67,12 +67,32 @@
             margin-left: 10px;
         }
 
-          /* New CSS for the button layout */
-          .button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+         /* Add this CSS for spacing */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Adjust the gap as needed for spacing */
+}
+
+/* Style for the "View My Resume" button */
+#view-resume {
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 50px; /* Vertical alignment */
+}
+
+/* Add a background color change on tap or hover for the button */
+#view-resume:hover,
+#view-resume:active {
+    background-color: #007bff;
+}
+
         
         .item-description {
             width: 100%;
@@ -106,32 +126,10 @@
             text-align: center;
         }
 
-      /* CSS for spacing */
         .button-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem; /* Adjust the gap as needed for spacing */
+            gap: 1rem; /* Spacing between buttons */
         }
-
-        /* Style for the "View My Resume" button */
-        #view-resume {
-            width: 150px;
-            height: 50px;
-            font-size: 15px;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            line-height: 50px; /* Vertical alignment */
-        }
-
-        /* Add a background color change on tap or hover for the button */
-        #view-resume:hover,
-        #view-resume:active {
-            background-color: #007bff;
-        }
-
 
         .btn {
             display: flex;
@@ -217,7 +215,7 @@
         </section>
 
         <div class="d-flex justify-content-start">
-            <button id="view-resume" class="btn btn-primary">View My Resume</button>
+            <button id="view-resume" class="btn btn-primary shared-button">View My Resume</button>
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
@@ -426,7 +424,7 @@
             const form = document.getElementById('contact-form');
             const submitButton = document.getElementById('submit-button');
 
-        document.getElementById('view-resume').addEventListener('click', function() {
+            document.getElementById('view-resume').addEventListener('click', function() {
             window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
         });
 
