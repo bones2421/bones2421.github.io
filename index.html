@@ -339,8 +339,23 @@
             const populateList = (list, items, type) => {
                 items.forEach(item => {
 
+                    const buttonGIFs = {
+                    'C++': 'cpp.gif',
+                    'UE5': 'ue5.gif',
+                    'MERN': 'mern.gif',
+                    'CSS': 'css.gif',
+                    'LUA': 'lua.gif',
+                    'HTML': 'html.gif',
+                    'BOOTSTRAP': 'bootstrap.gif',
+                    'PORTFOLIO': 'portfolio.gif',
+                    'EAT DA BURGER': 'eatdaburger.gif',
+                    'FRIEND-FINDER': 'friendfinder.gif',
+                    'GIF TASTIC': 'giftastic.gif',
+                    'LIRI-NODE-APP': 'liri-node-app.gif',
+                 };
+
                     const itemImage = document.createElement('img');
-                    itemImage.src = 'space.gif'; // Replace with the actual image path
+                    itemImage.src = buttonGIFs[item.name]; // Use the associated GIF for the button
                     itemImage.alt = item.name; // Use the item name as alt text
                     itemImage.className = 'item-image'; // Add a class for styling if needed
                     const listItem = document.createElement('li');
