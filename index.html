@@ -194,9 +194,8 @@
             </div>
         </section>
 
-        <button id="view-resume" class="btn btn-primary">View My Resume</button>
-
         <div class="d-flex justify-content-start">
+            <button id="view-resume" class="btn btn-primary">View My Resume</button>
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
             <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
         </div>
@@ -410,9 +409,10 @@
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
 
-        document.getElementById('view-resume').addEventListener('click', () => {
+        document.getElementById('view-resume').addEventListener('click', function() {
             window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
         });
+
 
                 // Send form data to Formspree
                 fetch('https://formspree.io/f/mjvqewyv', {
