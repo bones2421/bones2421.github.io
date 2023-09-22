@@ -140,16 +140,21 @@
         }
 
         /* Add a background color change on tap for the skills and projects buttons */
-.btn-secondary.shared-button {
-    cursor: pointer;
-    transition: background-color 0.2s ease; /* Add a smooth transition effect */
-}
+        .btn-secondary.shared-button {
+        cursor: pointer;
+        transition: background-color 0.2s ease; /* Add a smooth transition effect */
+        }
 
-.btn-secondary.shared-button:hover,
-.btn-secondary.shared-button:active {
-    background-color: #007bff; /* Change the background color on tap or hover */
-}
+        .btn-secondary.shared-button:hover,
+        .btn-secondary.shared-button:active {
+        background-color: #007bff; /* Change the background color on tap or hover */
+        }
 
+        .item-image {
+        width: 100px; /* Adjust the width as needed */
+        height: 100px; /* Adjust the height as needed */
+        object-fit: cover; /* or 'contain' depending on your preference */
+        }
 
         @media (max-width: 768px) {
             .bio-wrapper {
@@ -189,6 +194,8 @@
                 </div>
             </div>
         </section>
+
+        <p><a href="test.txt" target="_blank">View My Resume</a></p>
 
         <div class="d-flex justify-content-start">
             <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
@@ -331,6 +338,11 @@
             // Function to populate lists
             const populateList = (list, items, type) => {
                 items.forEach(item => {
+
+                    const itemImage = document.createElement('img');
+                    itemImage.src = 'space.gif'; // Replace with the actual image path
+                    itemImage.alt = item.name; // Use the item name as alt text
+                    itemImage.className = 'item-image'; // Add a class for styling if needed
                     const listItem = document.createElement('li');
                     const itemWrapper = document.createElement('div');
                     itemWrapper.className = 'list-item';
@@ -365,6 +377,8 @@
                     itemWrapper.appendChild(itemDescription);
                     listItem.appendChild(itemWrapper);
                     list.appendChild(listItem);
+                    // Append the image to the itemButtonWrapper
+                    itemButtonWrapper.appendChild(itemImage);
                 });
             };
     
