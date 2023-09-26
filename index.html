@@ -40,20 +40,6 @@
             text-align: center;
         }
 
-        .bio-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: auto;
-        }
-
-        .bio-text {
-            flex: 2 1 auto;
-            border: 2px solid #333; /* Use the button container color (blue) for the border */
-            padding: 20px;
-            background-color: white;
-            border-radius: 12px; /* Add rounded corners to the box */
-        }
-
         .list-item {
              display: flex;
             flex-direction: column; /* Makes it vertical */
@@ -144,7 +130,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center; /* Vertically center the content */
-    border: 2px solid #007bff; /* Use the button container color for the border */
+    border: 2px solid #333; /* Use the button container color for the border */
     padding: 20px;
     background-color: white;
     border-radius: 12px;
@@ -221,19 +207,58 @@
         object-fit: cover; /* or 'contain' depending on your preference */
         }
 
-        @media (max-width: 768px) {
-            .bio-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-/* Adjust the styles for the bio-image */
-.bio-image {
-    width: 150px; /* Adjust the size as needed */
-    height: 150px; /* Adjust the size as needed */
-    object-fit: cover; /* or 'contain' depending on your preference */
-    margin-right: 20px; /* Add some spacing between the image and text */
+/* Create a container for the image */
+.bio-image-container {
+    max-width: 10%; /* Adjust the width as needed for smaller images */
 }
-        }
+
+/* Adjust the image size within the container */
+.bio-image {
+    width: 100%; /* Ensure the image takes up the full width of the container */
+    max-width: 200px; /* Set a maximum width for the image on computer screens */
+    height: auto;
+    object-fit: cover;
+}
+
+/* Keep the text layout unchanged */
+.bio-text {
+    flex: 1; /* Allow text to take remaining space */
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px; /* Add rounded corners to the box */
+    text-align: left; /* Align text to the left */
+}
+
+/* Style for the contact form container */
+.contact-container {
+    border: 2px solid #333; /* Add a border */
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 20px; /* Add spacing between sections */
+}
+
+/* Apply responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .bio-wrapper {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+    
+    /* Reset margin and width for the image on mobile */
+    .bio-image {
+        flex: 1;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px; /* Add spacing between image and text on mobile */
+    }
+    
+    /* Adjust text padding and alignment on mobile */
+    .bio-text {
+        flex: 1 1 auto;
+        padding: 10px; /* Reduce padding on mobile */
+        text-align: center; /* Center text on mobile */
+    }
+}
     </style>
 </head>
 
@@ -255,8 +280,11 @@
         <section>
             <h2>About Me</h2>
             <div class="bio-container">
-                <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image">
-                <div class="bio-text">
+                <div class="bio-wrapper">
+                    <div class="bio-image">
+                        <img src="HEADSHOT.jpg" alt="Ben Williams">
+                    </div>
+                    <div class="bio-text">
                     <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
                     <p>I'm also proficient in full-stack web development, with hands-on experience in the MERN stack, JavaScript, HTML5, Bootstrap, and CSS. I'm currently in the exciting phase of developing my first game, EVERBLAZE, which is a testament to my love for game development.</p>
                     <p>I'm a problem-solver at heart, always eager to tackle challenges in both game and web development. My versatility in coding languages and frameworks equips me to bring a well-rounded approach to any project.</p>
@@ -290,6 +318,7 @@
     <!-- Adding contact form in a new section -->
     <section id="contact-section">
         <h2>Contact Me</h2>
+        <div class="contact-container">
         <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
             <div class="form-group">
                 <label for="name">Name:</label>
