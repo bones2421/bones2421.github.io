@@ -120,6 +120,28 @@
             align-items: center;
         }
 
+        /* CSS to style the social links */
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-link {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-link img {
+            width: 50px; /* Adjust the size of social media icons */
+            height: 50px;
+        }
+
+        /* Style for the copyright text */
+        footer p {
+            margin-top: 10px;
+            text-align: center;
+        }
+
         nav {
             background-color: #333;
             color: white;
@@ -217,10 +239,6 @@
         </section>
     </main>
 
-<footer>
-    <!-- Footer content can be added here -->
-</footer>
-
     <!-- Adding contact form in a new section -->
     <section id="contact-section">
         <h2>Contact Me</h2>
@@ -240,6 +258,15 @@
             <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
         </form>
     </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ben-williams-94792a185/" target="_blank" class="social-link"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+            <a href="https://github.com/bones2421" target="_blank" class="social-link"><img src="GitHub-icon.png" alt="GitHub"></a>
+            <!-- Add more social media links as needed -->
+        </div>
+        <p>&copy; 2023 Ben Williams</p>
+    </footer>
 
     <script>
        document.addEventListener('DOMContentLoaded', function() {
