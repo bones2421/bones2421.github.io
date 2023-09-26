@@ -47,8 +47,11 @@
         }
 
         .bio-text {
-            flex: 2 1 200px;
-            margin-left: 20px; /* Add margin to create space to the right of the text */
+            flex: 2 1 auto;
+            border: 2px solid #333; /* Use the button container color (blue) for the border */
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px; /* Add rounded corners to the box */
         }
 
         .list-item {
@@ -70,12 +73,12 @@
         }
 
          /* Add this CSS for spacing */
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; /* Adjust the gap as needed for spacing */
-}
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem; /* Adjust the gap as needed for spacing */
+        }
 
         .item-description {
             width: 100%;
@@ -136,6 +139,44 @@
             height: 50px;
         }
 
+        /* Add styles for the bio-container */
+.bio-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Vertically center the content */
+    border: 2px solid #007bff; /* Use the button container color for the border */
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 20px; /* Add some spacing between sections */
+}
+
+/* Add this CSS to style the animated background container */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('backgroundtriangle.png'); /* Replace with your background sprite image path */
+    background-position: center center;
+    background-repeat: repeat; /* Repeat the background image */
+    z-index: -1;
+    animation: backgroundAnimation 20s linear infinite; /* Adjust animation duration as needed */
+    /* Set the background image size */
+    background-size: 10% auto; /* Adjust the percentage as needed */
+}
+
+/* Keyframes for the background animation */
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
         /* Style for the copyright text */
         footer p {
             margin-top: 10px;
@@ -185,16 +226,19 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .bio-image {
-            flex: 1 1 200px;
-            max-width: 100%; /* Set maximum width to 100% */
-            max-height: auto; /* Automatically adjust height */
-            }
+/* Adjust the styles for the bio-image */
+.bio-image {
+    width: 150px; /* Adjust the size as needed */
+    height: 150px; /* Adjust the size as needed */
+    object-fit: cover; /* or 'contain' depending on your preference */
+    margin-right: 20px; /* Add some spacing between the image and text */
+}
         }
     </style>
 </head>
 
 <body>
+    
     <header>
         <h1>BEN WILLIAMS</h1>
     </header>
@@ -203,10 +247,14 @@
         <!-- Navigation links can be added here -->
     </nav>
 
+    <div class="background-container">
+        <!-- Your existing content goes here -->
+    </div>
+
     <main>
         <section>
             <h2>About Me</h2>
-            <div class="bio-wrapper">
+            <div class="bio-container">
                 <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image">
                 <div class="bio-text">
                     <p>Hello! I'm Ben Williams, a dedicated Gameplay Programmer and Web Developer with a passion for bringing ideas to life. I specialize in C++ and Unreal Engine 5, creating engaging and immersive gaming experiences. My technical skillset extends to C# and LUA, giving me the flexibility to work on a variety of platforms and frameworks.</p>
@@ -215,7 +263,7 @@
                     <p>Currently open to new opportunities, I'm excited to contribute my skills and enthusiasm to a like-minded team or project. Feel free to explore my skills and projects below!</p>
                     <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap. It is hosted using a custom domain.</p>
                 </div>
-            </div>
+            </div>            
         </section>
 
         <div class="d-flex justify-content-start">
