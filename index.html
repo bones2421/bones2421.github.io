@@ -332,6 +332,8 @@
             </ul>
         </section>
 
+        <button id="toggle-code-snippets" class="btn btn-primary">Toggle Code Snippets</button>
+
         <section>
             <h2>Code Snippets</h2>
             <div id="code-snippets-list">
@@ -376,6 +378,10 @@
     const skillsList = document.getElementById('skills-list');
     const projectsList = document.getElementById('projects-list');
 
+    // Get the code snippets list and the toggle button
+    const codeSnippetsList = document.getElementById('code-snippets-list');
+    const toggleCodeSnippetsBtn = document.getElementById('toggle-code-snippets');
+
     // Set the initial state to 'block'
     skillsList.style.display = 'block';
     projectsList.style.display = 'block';
@@ -395,6 +401,21 @@
         } else {
             projectsList.style.display = 'none';
         }
+    });
+
+        // Toggle snippets
+        function toggleCodeSnippets() {
+            if (codeSnippetsList.style.display === 'none' || codeSnippetsList.style.display === '') {
+                codeSnippetsList.style.display = 'block';
+                toggleCodeSnippetsBtn.textContent = 'Hide Code Snippets'; // Change button text to 'Hide'
+            } else {
+                codeSnippetsList.style.display = 'none';
+                toggleCodeSnippetsBtn.textContent = 'Show Code Snippets'; // Change button text to 'Show'
+            }
+        }
+
+        // Event listener for the toggle button
+        toggleCodeSnippetsBtn.addEventListener('click', toggleCodeSnippets);
     });
             const skills = [
                 { 
