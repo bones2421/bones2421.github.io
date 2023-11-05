@@ -385,6 +385,30 @@
             // Set the initial state to 'block'
             skillsList.style.display = 'block';
             projectsList.style.display = 'block';
+            codeSnippetsList.style.display = 'block';
+
+                // Ensure the codeSnippetsList is present
+    if (codeSnippetsList) {
+        // Your code snippet text
+        const codeSnippetText = `// Example JavaScript code
+console.log('Hello, world!');`;
+
+        // Create the snippet container
+        const snippetElement = document.createElement('div');
+        snippetElement.className = 'code-snippet';
+
+        // Create the <code> element
+        const codeElement = document.createElement('code');
+        codeElement.textContent = codeSnippetText;
+
+        // Append code to the snippet container
+        snippetElement.appendChild(codeElement);
+
+        // Append the snippet container to the list
+        codeSnippetsList.appendChild(snippetElement);
+    } else {
+        console.log('The element with ID "code-snippets-list" was not found.');
+    }
             
             // Toggle event listeners
             document.getElementById('toggle-skills').addEventListener('click', () => {
@@ -579,9 +603,7 @@
             document.getElementById('view-resume').addEventListener('click', function() {
                 window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
             });
-        
-            // Code Snippets (if you decide to include the code snippet section, it goes here)
         });
-        </script>        
+    </script>        
 </body>
 </html>
