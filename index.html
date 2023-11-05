@@ -569,24 +569,25 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-    const codeSnippetsList = document.getElementById('code-snippets-list');
+    document.addEventListener('DOMContentLoaded', function() {
+        const codeSnippetsList = document.getElementById('code-snippets-list');
 
-    const codeSnippets = [
-        'console.log("Hello, World!");',
-        'function add(a, b) { return a + b; }',
-        // ... add more snippets here
-    ];
-
-    codeSnippets.forEach(snippet => {
+        const codeSnippet = `// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function() {
+    // Add a new burger.
+    $(".create-form").on("submit", function(event) {
+        // ...
+        // The rest of your jQuery code snippet goes here
+        // ...
+    });
+});`;
         const snippetElement = document.createElement('div');
         snippetElement.className = 'code-snippet';
         const codeElement = document.createElement('code');
-        codeElement.textContent = snippet;
+        codeElement.textContent = codeSnippet;
         snippetElement.appendChild(codeElement);
         codeSnippetsList.appendChild(snippetElement);
     });
-});
     </script>    
 </body>
 </html>
