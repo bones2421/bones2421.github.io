@@ -38,19 +38,25 @@
             padding-left: 0;
             background-color: #333;
             border-radius: 12px;
-            margin: 8px 0;
         }
         ul li {
             color: #fff;
             padding: 10px;
             text-align: center;
         }
-
-        .list-item {
-             display: flex;
-            flex-direction: column; /* Makes it vertical */
-            align-items: center;
-            width: 100%;
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        ul li a:hover {
+            color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
         }
 
         .item-description {
@@ -63,35 +69,10 @@
         .github-button {
             margin-left: 10px;
         }
-
-         /* Add this CSS for spacing */
-        .button-container {
-            display: flex;
-            /*justify-content: center;
-            align-items: center;
-            gap: 1rem; /* Adjust the gap as needed for spacing */
-        }
-
+   
         /* Ensure the button and description don't interfere */
         .button-container > * {
             flex: 1;
-        }
-
-        .shared-button {
-            width: 150px;
-            height: 50px;
-            font-size: 15px;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .project-button,
-        .github-button {
-            height: 50px; 
-            line-height: 50px;  
-            vertical-align: middle;
         }
 
         .item-button-wrapper {
@@ -167,16 +148,7 @@
             margin-top: 1px;
             text-align: center;
         }
-
-        nav {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-        }
+   
         main {
             display: flex;
             flex-direction: column;
@@ -236,7 +208,7 @@
 }
 
 /* Add styles for mobile screens */
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     /* Adjust the bio-container to stack elements vertically */
     .bio-container {
         flex-direction: column;
