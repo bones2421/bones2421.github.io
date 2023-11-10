@@ -312,34 +312,32 @@
             </div>
         </section>
 
-        <div class="d-flex justify-content-start">
-            <button id="view-resume" class="btn btn-primary mr-2">View My Resume</button>
-            <button id="toggle-skills" class="btn btn-primary mr-2">Toggle Skills</button>
-            <button id="toggle-projects" class="btn btn-primary">Toggle Projects</button>
+    <!-- Skills Section -->
+    <button id="toggle-skills" class="btn btn-primary">Hide Skills</button>
+    <section>
+        <h2>Skills</h2>
+        <ul id="skills-list">
+            <!-- Skills will be dynamically inserted here -->
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <button id="toggle-projects" class="btn btn-primary">Hide Projects</button>
+    <section>
+        <h2>Projects</h2>
+        <ul id="projects-list">
+            <!-- Projects will be dynamically inserted here -->
+        </ul>
+    </section>
+
+    <!-- Code Snippets Section -->
+    <button id="toggle-code-snippets" class="btn btn-primary">Hide Code Snippets</button>
+    <section>
+        <h2>Code Snippets</h2>
+        <div id="code-snippets-list">
+            <!-- Code snippets will be dynamically inserted here -->
         </div>
-
-        <section>
-            <h2>Skills</h2>
-            <ul id="skills-list">
-                <!-- Skills will be dynamically inserted here -->
-            </ul>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            <ul id="projects-list">
-                <!-- Projects will be dynamically inserted here -->
-            </ul>
-        </section>
-
-        <button id="toggle-code-snippets" class="btn btn-primary">Toggle Code Snippets</button>
-
-        <section>
-            <h2>Code Snippets</h2>
-            <div id="code-snippets-list">
-                <!-- Code snippets will be dynamically inserted here -->
-            </div>
-        </section>        
+    </section>         
     </main>
 
     <!-- Adding contact form in a new section -->
@@ -464,22 +462,27 @@ $(function() {
         console.log('The element with ID "code-snippets-list" was not found.');
     }
             
-            // Toggle event listeners
-            document.getElementById('toggle-skills').addEventListener('click', () => {
-                if (skillsList.style.display === 'none' || skillsList.style.display === '') {
-                    skillsList.style.display = 'block';
-                } else {
-                    skillsList.style.display = 'none';
-                }
-            });
-        
-            document.getElementById('toggle-projects').addEventListener('click', () => {
-                if (projectsList.style.display === 'none' || projectsList.style.display === '') {
-                    projectsList.style.display = 'block';
-                } else {
-                    projectsList.style.display = 'none';
-                }
-            });
+    document.getElementById('toggle-skills').addEventListener('click', function() {
+    if (skillsList.style.display === 'none' || skillsList.style.display === '') {
+        skillsList.style.display = 'block';
+        this.textContent = 'Hide Skills';
+    } else {
+        skillsList.style.display = 'none';
+        this.textContent = 'Show Skills';
+    }
+});
+
+document.getElementById('toggle-projects').addEventListener('click', function() {
+    if (projectsList.style.display === 'none' || projectsList.style.display === '') {
+        projectsList.style.display = 'block';
+        this.textContent = 'Hide Projects';
+    } else {
+        projectsList.style.display = 'none';
+        this.textContent = 'Show Projects';
+    }
+});
+
+
         
             // Toggle snippets
             function toggleCodeSnippets() {
@@ -654,9 +657,9 @@ $(function() {
             });
         
             // Resume view
-            document.getElementById('view-resume').addEventListener('click', function() {
-                window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
-            });
+            //document.getElementById('view-resume').addEventListener('click', function() {
+                //window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
+            //});
         });
     </script>        
 </body>
