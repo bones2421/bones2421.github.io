@@ -248,6 +248,16 @@
     margin: 10px 0;
 }
 
+#view-resume {
+    font-size: 20px;
+    padding: 10px 20px;
+    min-width: 150px;
+    min-height: 50px;
+    border-radius: 5px;
+    margin: 10px auto; /* Adjusted for auto horizontal margins */
+    display: block; /* To enable margin auto to work */
+}
+
 .code-snippet {
     background-color: #fff;
     color: #333;
@@ -292,6 +302,7 @@
                     <p><strong>Note:</strong> I made this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap. It is hosted using a custom domain.</p>
                 </div>
             </div>
+                <button id="view-resume" class="btn btn-primary">View Resume</button>
         </section>
 
     <!-- Skills Section -->
@@ -644,9 +655,9 @@ document.getElementById('toggle-projects').addEventListener('click', function() 
             });
         
             // Resume view
-            //document.getElementById('view-resume').addEventListener('click', function() {
-                //window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
-            //});
+            document.getElementById('view-resume').addEventListener('click', function() {
+                window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
+            });
         });
     </script>        
 </body>
