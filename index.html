@@ -340,19 +340,20 @@
         <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="_replyto">
+                <input type="email" class="form-control" id="email" name="_replyto" required>
             </div>
             <div class="form-group">
                 <label for="message">Message:</label>
-                <textarea class="form-control" id="message" name="message"></textarea>
+                <textarea class="form-control" id="message" name="message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
         </form>
-    </section>
+        </div>
+    </section>    
 
     <footer>
         <div class="social-links">
@@ -474,8 +475,6 @@ document.getElementById('toggle-projects').addEventListener('click', function() 
         this.textContent = 'Show Projects';
     }
 });
-
-
         
             // Toggle snippets
             function toggleCodeSnippets() {
@@ -621,39 +620,42 @@ document.getElementById('toggle-projects').addEventListener('click', function() 
             populateList(skillsList, skills, 'skills');
             populateList(projectsList, projects, 'projects');
         
-            // Form submission
-            const submitButton = document.getElementById('submit-button');
-            const form = document.getElementById('contact-form');
-            
-            submitButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-        
-                // Send form data to Formspree
-                fetch('https://formspree.io/f/mjvqewyv', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name: name, email: email, message: message })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alert("Your message has been sent successfully!");
-                        form.reset();
-                    } else {
-                        alert("Fields cannot be empty.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Error sending message:", error);
-                    alert("An error occurred. Please try again.");
-                });
-            });
-        
+            document.getElementById('submit-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default form submission action
+
+    const form = document.getElementById('contact-form');
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Check if the form is valid
+    if (form.checkValidity()) {
+        // Form is valid, proceed with AJAX submission or other logic
+        fetch('https://formspree.io/f/mjvqewyv', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: name, email: email, message: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert("Your message has been sent successfully!");
+                form.reset();
+            } else {
+                alert("An error occurred. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error sending message:", error);
+            alert("An error occurred. Please try again.");
+        });
+    } else {
+        // Form is invalid, let the browser show HTML5 validation messages
+        form.reportValidity(); // This line will trigger the browser's native validation UI
+    }
+        });
             // Resume view
             document.getElementById('view-resume').addEventListener('click', function() {
                 window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
