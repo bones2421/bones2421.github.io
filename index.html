@@ -274,6 +274,22 @@
 .code-snippet code {
     display: block; /* Block level for full-width lines */
 }
+
+#audio-player {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+audio {
+    width: 100%; /* Makes the audio player stretch to fill the container */
+    margin-top: 10px;
+}
+
+audio:not([controls]) {
+    display: none; /* Hide the audio player if controls are not present */
+}
     </style>
 </head>
 
@@ -333,6 +349,20 @@
     </section>         
     </main>
 
+    <!-- Audio Section -->
+    <section id="my-music">
+        <h2>My Music</h2>
+        <p>Here are some of the projects I've worked on:</p>
+        <div class="audio-player">
+            <audio controls>
+                <source src="BUMPN.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p>Song Title - Description or context of the song.</p>
+        </div>
+        <!-- Repeat the div block for each song you want to add -->
+    </section>
+    
     <!-- Adding contact form in a new section -->
     <section id="contact-section">
         <h2>Contact Me</h2>
