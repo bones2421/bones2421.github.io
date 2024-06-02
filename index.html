@@ -14,25 +14,66 @@
             background-color: #f4f4f4;
         }
 
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('backgroundtriangle.png');
+            background-position: center center;
+            background-repeat: repeat;
+            z-index: -1;
+            animation: backgroundAnimation 20s linear infinite;
+            background-size: 10% auto;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         header {
             background-color: #333;
             color: white;
             padding: 5px;
             text-align: center;
+            width: 100%;
         }
 
         h2 {
             border: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin: 20px auto;
             font-size: 28px;
             font-weight: bold;
             color: #333;
             background-color: #f0f0f0;
-            padding: 10px;
             border-radius: 5px;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        section {
+            width: 100%;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         ul {
@@ -40,6 +81,8 @@
             padding-left: 0;
             background-color: #333;
             border-radius: 12px;
+            display: inline-block;
+            text-align: left;
         }
 
         ul li {
@@ -55,14 +98,6 @@
 
         ul li a:hover {
             color: #f0f0f0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 12px;
         }
 
         .item-description {
@@ -87,6 +122,7 @@
         .button-container {
             display: flex;
             gap: 1rem;
+            justify-content: center;
         }
 
         .btn {
@@ -118,48 +154,33 @@
             background-color: white;
             border-radius: 12px;
             margin-bottom: 20px;
+            text-align: left;
         }
 
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .bio-image-container {
+            margin-right: 20px;
+        }
+
+        .bio-text {
+            font-size: 20px;
+            line-height: 1.6;
             width: 100%;
-            height: 100%;
-            background-image: url('backgroundtriangle.png');
-            background-position: center center;
-            background-repeat: repeat;
-            z-index: -1;
-            animation: backgroundAnimation 20s linear infinite;
-            background-size: 10% auto;
+            box-sizing: border-box;
         }
 
-        @keyframes backgroundAnimation {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 100% 0;
-            }
-        }
-
-        footer p {
-            margin-top: 1px;
-            text-align: center;
-        }
-
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .bio-image {
+            max-width: 150px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         footer {
             background-color: #333;
             color: white;
-            padding: 1px;
+            padding: 10px;
             text-align: center;
+            width: 100%;
         }
 
         .btn-secondary.shared-button {
@@ -178,39 +199,24 @@
             object-fit: cover;
         }
 
-        .bio-image-container {
-            flex: 0 0 auto;
-            margin-right: 20px;
-        }
-
-        .bio-text {
-            font-size: 20px;
-            line-height: 1.6;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .bio-image {
-            max-width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
         .contact-container {
             border: 2px solid #333;
             padding: 20px;
             background-color: white;
             border-radius: 12px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
             .bio-container {
                 flex-direction: column;
+                text-align: center;
             }
 
             .bio-image-container {
-                text-align: center;
+                margin-right: 0;
+                margin-bottom: 20px;
             }
 
             .bio-text {
@@ -229,6 +235,8 @@
             background-color: #333;
             border-radius: 12px;
             margin: 8px 0;
+            display: inline-block;
+            text-align: left;
         }
 
         #toggle-skills,
@@ -239,7 +247,8 @@
             min-width: 150px;
             min-height: 50px;
             border-radius: 5px;
-            margin: 10px 0;
+            margin: 10px auto;
+            display: block;
         }
 
         #view-resume {
@@ -263,6 +272,8 @@
             white-space: pre-wrap;
             overflow-x: auto;
             word-break: break-all;
+            display: inline-block;
+            text-align: left;
         }
 
         .code-snippet code {
@@ -310,106 +321,105 @@
 </head>
 
 <body>
-    <header>
-        <h1>BEN WILLIAMS</h1>
-    </header>
+    <div class="background-container"></div>
+    <div class="container">
+        <header>
+            <h1>BEN WILLIAMS</h1>
+        </header>
 
-    <div class="background-container">
-        <!-- existing content goes here -->
+        <main>
+            <section>
+                <h2>About Me</h2>
+                <div class="bio-container">
+                    <div class="bio-image-container">
+                        <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image">
+                    </div>
+                    <div class="bio-text">
+                        <p>Hello! I'm Ben Williams, a dedicated Sound Designer with a passion for bringing ideas to life through immersive audio experiences. Specializing in Unreal Engine, I create engaging and dynamic soundscapes that captivate audiences.</p>
+                        <p>With proficiency in C#, C++, and LUA, I bring flexibility to work on various platforms and frameworks. I'm also skilled in Reaper, FL Studio, Wwise, and FMOD, and have hands-on experience in Unity.</p>
+                        <p>Currently, I'm developing my first audio experience called <strong>Nebula</strong>, designed to showcase my creativity and technical prowess. Stay tuned for its launch!</p>
+                        <p>As a natural problem-solver, I'm always eager to tackle new challenges. My versatility in coding languages and familiarity with DAWs make me well-equipped for any project.</p>
+                        <p>I'm actively seeking new opportunities to contribute my skills and enthusiasm to a like-minded team or project. Explore my skills and projects below, and feel free to reach out!</p>
+                        <p><strong>PS:</strong>Feel free to ask about my coding knowledge!</p>
+                        <p><strong>Note:</strong> I built this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap. It is hosted on a custom domain.</p>
+                    </div>
+                </div>
+                <button id="view-resume" class="btn btn-primary">View Resume</button>
+            </section>
+
+            <!-- Skills Section -->
+            <section>
+                <h2>Skills</h2>
+                <ul id="skills-list">
+                    <!-- Skills will be dynamically inserted here -->
+                </ul>
+                <button id="toggle-skills" class="btn btn-primary">Hide Skills</button>
+            </section>
+
+            <!-- Projects Section -->
+            <section>
+                <h2>Flagship</h2>
+                <ul id="projects-list">
+                    <!-- Projects will be dynamically inserted here -->
+                </ul>
+                <button id="toggle-projects" class="btn btn-primary">Hide Project</button>
+            </section>
+
+            <!-- Reel Section -->
+            <section>
+                <h2>Reel</h2>
+                <div id="code-snippets-list">
+                    <!-- Code snippets will be dynamically inserted here -->
+                </div>
+                <button id="toggle-code-snippets" class="btn btn-primary">Hide Reel</button>
+            </section>
+
+            <!-- Audio Section -->
+            <section id="my-music">
+                <h2>My Music</h2>
+                <p>Here are some of the projects I've worked on:</p>
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="BUMPN.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p><strong>Song Title</strong> - BUMPN</p>
+                </div>
+                <!-- Repeat the div block for each song you want to add -->
+            </section>
+
+            <!-- Adding contact form in a new section -->
+            <section id="contact-section">
+                <h2>Contact Me</h2>
+                <div class="contact-container">
+                    <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="_replyto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea class="form-control" id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ben-williams-94792a185/" target="_blank" class="social-link"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                <a href="https://github.com/bones2421" target="_blank" class="social-link"><img src="GitHub-icon.png" alt="GitHub"></a>
+                <!-- Add more social media links as needed -->
+            </div>
+            <p>&copy; 2024 Ben Williams</p>
+        </footer>
     </div>
-
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <div class="bio-container">
-                <div class="bio-image-container">
-                    <img src="HEADSHOT.jpg" alt="Ben Williams" class="bio-image">
-                </div>
-                <div class="bio-text">
-                    <p>Hello! I'm Ben Williams, a dedicated Sound Designer with a passion for bringing ideas to life through immersive audio experiences. Specializing in Unreal Engine, I create engaging and dynamic soundscapes that captivate audiences.</p>
-                    <p>With proficiency in C#, C++, and LUA, I bring flexibility to work on various platforms and frameworks. I'm also skilled in Reaper, FL Studio, Wwise, and FMOD, and have hands-on experience in Unity.</p>
-                    <p>Currently, I'm developing my first audio experience called <strong>Nebula</strong>, designed to showcase my creativity and technical prowess. Stay tuned for its launch!</p>
-                    <p>As a natural problem-solver, I'm always eager to tackle new challenges. My versatility in coding languages and familiarity with DAWs make me well-equipped for any project.</p>
-                    <p>I'm actively seeking new opportunities to contribute my skills and enthusiasm to a like-minded team or project. Explore my skills and projects below, and feel free to reach out!</p>
-                    <p><strong>PS:</strong>Feel free to ask about my coding knowledge!</p>
-                    <p><strong>Note:</strong> I built this website from scratch using the full MERN stack along with HTML, CSS, and Bootstrap. It is hosted on a custom domain.</p>
-                </div>
-            </div>
-            <button id="view-resume" class="btn btn-primary">View Resume</button>
-        </section>
-
-        <!-- Skills Section -->
-        <button id="toggle-skills" class="btn btn-primary">Hide Skills</button>
-        <section>
-            <h2>Skills</h2>
-            <ul id="skills-list">
-                <!-- Skills will be dynamically inserted here -->
-            </ul>
-        </section>
-
-        <!-- Projects Section -->
-        <button id="toggle-projects" class="btn btn-primary">Hide Project</button>
-        <section>
-            <h2>Flagship</h2>
-            <ul id="projects-list">
-                <!-- Projects will be dynamically inserted here -->
-            </ul>
-        </section>
-
-        <!-- Code Snippets Section -->
-        <button id="toggle-code-snippets" class="btn btn-primary">Hide Code Snippet</button>
-        <section>
-            <h2>Code Snippet</h2>
-            <div id="code-snippets-list">
-                <!-- Code snippets will be dynamically inserted here -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Audio Section -->
-    <section id="my-music">
-        <h2>My Music</h2>
-        <p>Here are some of the projects I've worked on:</p>
-        <div class="audio-player">
-            <audio controls>
-                <source src="BUMPN.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <p><strong>Song Title</strong> - BUMPN</p>
-        </div>
-        <!-- Repeat the div block for each song you want to add -->
-    </section>
-
-    <!-- Adding contact form in a new section -->
-    <section id="contact-section">
-        <h2>Contact Me</h2>
-        <div class="contact-container">
-            <form id="contact-form" action="https://formspree.io/f/mjvqewyv" method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="_replyto" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea class="form-control" id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/ben-williams-94792a185/" target="_blank" class="social-link"><img src="linkedin-icon.png" alt="LinkedIn"></a>
-            <a href="https://github.com/bones2421" target="_blank" class="social-link"><img src="GitHub-icon.png" alt="GitHub"></a>
-            <!-- Add more social media links as needed -->
-        </div>
-        <p>&copy; 2024 Ben Williams</p>
-    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -460,10 +470,10 @@
             function toggleCodeSnippets() {
                 if (codeSnippetsList.style.display === 'none' || codeSnippetsList.style.display === '') {
                     codeSnippetsList.style.display = 'block';
-                    toggleCodeSnippetsBtn.textContent = 'Hide Code Snippet';
+                    toggleCodeSnippetsBtn.textContent = 'Hide Reel';
                 } else {
                     codeSnippetsList.style.display = 'none';
-                    toggleCodeSnippetsBtn.textContent = 'Show Code Snippet';
+                    toggleCodeSnippetsBtn.textContent = 'Show Reel';
                 }
             }
 
