@@ -107,7 +107,7 @@
             margin-top: 10px;
         }
 
-        .github-button {
+        .itchio-button {
             margin-left: 10px;
         }
 
@@ -240,7 +240,8 @@
         }
 
         #toggle-skills,
-        #toggle-projects,
+        #toggle-flagship-projects,
+        #toggle-other-projects,
         #toggle-code-snippets {
             font-size: 20px;
             padding: 10px 20px;
@@ -358,12 +359,21 @@
                 </ul>
             </section>
 
-            <!-- Projects Section -->
+            <!-- Flagship Projects Section -->
             <section>
                 <h2>Flagship</h2>
-                <button id="toggle-projects" class="btn btn-primary">Hide Project</button>
-                <ul id="projects-list">
-                    <!-- Projects will be dynamically inserted here -->
+                <button id="toggle-flagship-projects" class="btn btn-primary">Hide Project</button>
+                <ul id="flagship-projects-list">
+                    <!-- Flagship Projects will be dynamically inserted here -->
+                </ul>
+            </section>
+
+            <!-- Other Projects Section -->
+            <section>
+                <h2>Other Projects</h2>
+                <button id="toggle-other-projects" class="btn btn-primary">Hide Projects</button>
+                <ul id="other-projects-list">
+                    <!-- Other Projects will be dynamically inserted here -->
                 </ul>
             </section>
 
@@ -379,7 +389,7 @@
             <!-- Audio Section -->
             <section id="my-music">
                 <h2>My Music</h2>
-                <p>Here are some of the projects I've worked on:</p>
+                <p>Here is some of my work:</p>
                 <div class="audio-player">
                     <audio controls>
                         <source src="BUMPN.mp3" type="audio/mpeg">
@@ -426,12 +436,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const skillsList = document.getElementById('skills-list');
-            const projectsList = document.getElementById('projects-list');
+            const flagshipProjectsList = document.getElementById('flagship-projects-list');
+            const otherProjectsList = document.getElementById('other-projects-list');
             const codeSnippetsList = document.getElementById('code-snippets-list');
             const toggleCodeSnippetsBtn = document.getElementById('toggle-code-snippets');
 
             skillsList.style.display = 'block';
-            projectsList.style.display = 'block';
+            flagshipProjectsList.style.display = 'block';
+            otherProjectsList.style.display = 'block';
             codeSnippetsList.style.display = 'block';
 
             if (codeSnippetsList) {
@@ -459,13 +471,23 @@
                 }
             });
 
-            document.getElementById('toggle-projects').addEventListener('click', function () {
-                if (projectsList.style.display === 'none' || projectsList.style.display === '') {
-                    projectsList.style.display = 'block';
+            document.getElementById('toggle-flagship-projects').addEventListener('click', function () {
+                if (flagshipProjectsList.style.display === 'none' || flagshipProjectsList.style.display === '') {
+                    flagshipProjectsList.style.display = 'block';
                     this.textContent = 'Hide Project';
                 } else {
-                    projectsList.style.display = 'none';
+                    flagshipProjectsList.style.display = 'none';
                     this.textContent = 'Show Project';
+                }
+            });
+
+            document.getElementById('toggle-other-projects').addEventListener('click', function () {
+                if (otherProjectsList.style.display === 'none' || otherProjectsList.style.display === '') {
+                    otherProjectsList.style.display = 'block';
+                    this.textContent = 'Hide Projects';
+                } else {
+                    otherProjectsList.style.display = 'none';
+                    this.textContent = 'Show Projects';
                 }
             });
 
@@ -494,8 +516,12 @@
                 { name: 'FMOD', description: 'Vast knowledge of FMOD for sound design, enabling the implementation of music, and sound effects in games.' },
             ];
 
-            const projects = [
-                { name: 'NEBULA', description: 'A project in which I created an immersive audio experience.(To be hosted on ITCH.io)', github: '', },
+            const flagshipProjects = [
+                { name: 'NEBULA', description: 'A project in which I created an immersive audio experience. (To be hosted on ITCH.io)', itchio: 'https://example-itchio-link.com' },
+            ];
+
+            const otherProjects = [
+                { name: 'PROJECT X', description: 'A different project that highlights my other skills. (To be hosted on ITCH.io)', itchio: 'https://example-itchio-link.com' },
             ];
 
             const populateList = (list, items, type) => {
@@ -511,7 +537,8 @@
                         'NEBULA': 'nebula.gif',
                         'FL STUDIO': 'fl-studio.gif',
                         'WWISE': 'wwise.gif',
-                        'FMOD': 'fmod.gif'
+                        'FMOD': 'fmod.gif',
+                        'PROJECT X': 'project-x.gif'
                     };
 
                     const itemImage = document.createElement('img');
@@ -539,12 +566,12 @@
                     });
 
                     if (type === 'projects') {
-                        const githubLink = document.createElement('a');
-                        githubLink.href = item.github;
-                        githubLink.textContent = 'GITHUB';
-                        githubLink.target = '_blank';
-                        githubLink.className = 'btn btn-secondary github-button shared-button';
-                        itemButtonWrapper.appendChild(githubLink);
+                        const itchioLink = document.createElement('a');
+                        itchioLink.href = item.itchio;
+                        itchioLink.textContent = 'ITCH.IO';
+                        itchioLink.target = '_blank';
+                        itchioLink.className = 'btn btn-secondary itchio-button shared-button';
+                        itemButtonWrapper.appendChild(itchioLink);
                     }
 
                     itemButtonWrapper.appendChild(itemButton);
@@ -558,7 +585,8 @@
             };
 
             populateList(skillsList, skills, 'skills');
-            populateList(projectsList, projects, 'projects');
+            populateList(flagshipProjectsList, flagshipProjects, 'projects');
+            populateList(otherProjectsList, otherProjects, 'projects');
 
             document.getElementById('submit-button').addEventListener('click', function (event) {
                 event.preventDefault();
