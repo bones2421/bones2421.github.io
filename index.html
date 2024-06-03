@@ -162,7 +162,7 @@
         }
 
         .bio-text {
-            font-size: 17px;
+            font-size: 20px;
             line-height: 1.6;
             width: 100%;
             box-sizing: border-box;
@@ -251,7 +251,8 @@
             display: block;
         }
 
-        #view-resume {
+        #view-resume,
+        #view-cover-letter {
             font-size: 20px;
             padding: 10px 20px;
             min-width: 150px;
@@ -345,6 +346,7 @@
                     </div>
                 </div>
                 <button id="view-resume" class="btn btn-primary">View Resume</button>
+                <button id="view-cover-letter" class="btn btn-primary">View Cover Letter</button>
             </section>
 
             <!-- Skills Section -->
@@ -593,7 +595,11 @@
             });
 
             document.getElementById('view-resume').addEventListener('click', function () {
-                window.open('Ben Williams - Sound Designer 2024.docx', '_blank');
+                window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
+            });
+
+            document.getElementById('view-cover-letter').addEventListener('click', function () {
+                window.open('Ben Williams Cover Letter - 2024.docx', '_blank');
             });
         });
     </script>
