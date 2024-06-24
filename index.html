@@ -253,7 +253,8 @@
         }
 
         #view-resume,
-        #view-cover-letter {
+        #view-cover-letter,
+        #view-my-games {
             font-size: 20px;
             padding: 10px 20px;
             min-width: 150px;
@@ -348,6 +349,7 @@
                 </div>
                 <button id="view-resume" class="btn btn-primary">View Resume</button>
                 <button id="view-cover-letter" class="btn btn-primary">View Cover Letter</button>
+                <button id="view-my-games" class="btn btn-primary">My Games</button>
             </section>
 
             <!-- Skills Section -->
@@ -448,7 +450,7 @@
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/ben-williams-94792a185/" target="_blank" class="social-link"><img src="linkedin-icon.png" alt="LinkedIn"></a>
                 <a href="https://github.com/bones2421" target="_blank" class="social-link"><img src="GitHub-icon.png" alt="GitHub"></a>
-                <a href="https://bones2421.itch.io/" target="_blank" class="social-link"><img src="itch-io-icon.png" alt="GitHub"></a>
+                <a href="https://bones2421.itch.io/" target="_blank" class="social-link"><img src="itch-io-icon.png" alt="Itch.io"></a>
                 <!-- Add more social media links as needed -->
             </div>
             <p>&copy; 2024 Ben Williams</p>
@@ -645,11 +647,15 @@
             });
 
             document.getElementById('view-resume').addEventListener('click', function () {
-                window.open('Ben Williams Full-Stack Developer - 2023.docx', '_blank');
+                window.open('Ben Williams - Sound Designer 2024.docx', '_blank');
             });
 
             document.getElementById('view-cover-letter').addEventListener('click', function () {
                 window.open('Ben Williams Cover Letter - 2024.docx', '_blank');
+            });
+
+            document.getElementById('view-my-games').addEventListener('click', function () {
+                window.open('https://bones2421.itch.io/', '_blank');
             });
         });
     </script>
