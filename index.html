@@ -677,7 +677,12 @@
 
         function isValidEmail(email) {
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            return emailPattern.test(email);
+            const localPart = email.split('@')[0];
+            const domainPart = email.split('@')[1];
+            const hasLetter = /[a-zA-Z]/.test(localPart);
+            const isNotRandom = /^[a-zA-Z0-9._%+-]{1,64}$/.test(localPart) && localPart.length >= 3;
+
+            return emailPattern.test(email) && hasLetter && isNotRandom && domainPart;
         }
     </script>
 </body>
