@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
+    "email-verifier": "^0.4.1",
     "express": "^4.19.2",
     "nodemailer": "^6.9.9"
-  }
+  },
+  "keywords": []
 }
