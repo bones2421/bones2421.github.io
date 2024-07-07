@@ -320,15 +320,6 @@
             margin-top: 10px;
             font-weight: bold;
         }
-
-        .video-container {
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .video-container video {
-            border-radius: 12px;
-        }
     </style>
 </head>
 
@@ -394,13 +385,12 @@
                 <button id="toggle-code-snippets" class="btn btn-primary">Hide Reel</button>
                 <div id="code-snippets-list">
                     <!-- Code snippets will be dynamically inserted here -->
+                </div>
 
-                    <!-- Video Section -->
-                    <div class="video-container">
-                        <video controls width="100%">
-                            <source src="Nebula_SoundReel_RoughCut_SmallRatio.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                <!-- Video Section -->
+                <div id="video-section">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Jxs-_dm9Ed4?si=QSGF3HOkA3D39nvG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
