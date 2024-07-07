@@ -229,20 +229,9 @@
             }
         }
 
-        #code-snippets-list {
-            list-style: none;
-            padding-left: 0;
-            background-color: #333;
-            border-radius: 12px;
-            margin: 8px 0;
-            display: inline-block;
-            text-align: left;
-        }
-
         #toggle-skills,
         #toggle-flagship-projects,
-        #toggle-other-projects,
-        #toggle-code-snippets {
+        #toggle-other-projects {
             font-size: 20px;
             padding: 10px 20px;
             min-width: 150px;
@@ -382,12 +371,6 @@
             <!-- Reel Section -->
             <section>
                 <h2>Reel</h2>
-                <button id="toggle-code-snippets" class="btn btn-primary">Hide Reel</button>
-                <div id="code-snippets-list">
-                    <!-- Code snippets will be dynamically inserted here -->
-                </div>
-
-                <!-- Video Section -->
                 <div id="video-section">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/Jxs-_dm9Ed4?si=QSGF3HOkA3D39nvG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -469,13 +452,10 @@
             const skillsList = document.getElementById('skills-list');
             const flagshipProjectsList = document.getElementById('flagship-projects-list');
             const otherProjectsList = document.getElementById('other-projects-list');
-            const codeSnippetsList = document.getElementById('code-snippets-list');
-            const toggleCodeSnippetsBtn = document.getElementById('toggle-code-snippets');
 
             skillsList.style.display = 'block';
             flagshipProjectsList.style.display = 'block';
             otherProjectsList.style.display = 'block';
-            codeSnippetsList.style.display = 'block';
 
             document.getElementById('toggle-skills').addEventListener('click', function () {
                 if (skillsList.style.display === 'none' || skillsList.style.display === '') {
@@ -507,18 +487,6 @@
                 }
             });
 
-            function toggleCodeSnippets() {
-                if (codeSnippetsList.style.display === 'none' || codeSnippetsList.style.display === '') {
-                    codeSnippetsList.style.display = 'block';
-                    toggleCodeSnippetsBtn.textContent = 'Hide Reel';
-                } else {
-                    codeSnippetsList.style.display = 'none';
-                    toggleCodeSnippetsBtn.textContent = 'Show Reel';
-                }
-            }
-
-            toggleCodeSnippetsBtn.addEventListener('click', toggleCodeSnippets);
-
             const skills = [
                 { name: 'C++', description: 'Advanced expertise in C++ for gameplay programming, enabling the creation of efficient, high-performance game logic and features.' },
                 { name: 'UE5', description: 'In-depth knowledge of Unreal Engine 5, capable of developing visually stunning and interactive 3D games with advanced mechanics.' },
@@ -537,7 +505,7 @@
             ];
 
             const otherProjects = [
-                { name: 'CHRONICLE AND CENTURY', description: 'A project during which I worked on a team to create an entire game that was within one box. I was resposible for making the teleporter system and the audio for the teleporters. I used Reaper, FL studio, and Sound Cues in Unreal Engine 5 for this. This was made for a game jam and won an award for best level transitions.', itchio: 'https://bones2421.itch.io/chronicle-and-century' },
+                { name: 'CHRONICLE AND CENTURY', description: 'A project during which I worked on a team to create an entire game that was within one box. I was responsible for making the teleporter system and the audio for the teleporters. I used Reaper, FL studio, and Sound Cues in Unreal Engine 5 for this. This was made for a game jam and won an award for best level transitions.', itchio: 'https://bones2421.itch.io/chronicle-and-century' },
                 { name: 'CHAOS SECTOR', description: 'This is a game that I made on my own for fun. It was made in Unreal Engine 5 with the flipbook plugin. Sound Cues were used for the audio. Pixel art was used for the visuals.', itchio: 'https://bones2421.itch.io/chaossector' },
             ];
 
