@@ -320,6 +320,15 @@
             margin-top: 10px;
             font-weight: bold;
         }
+
+        .video-container {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            border-radius: 12px;
+        }
     </style>
 </head>
 
@@ -385,6 +394,14 @@
                 <button id="toggle-code-snippets" class="btn btn-primary">Hide Reel</button>
                 <div id="code-snippets-list">
                     <!-- Code snippets will be dynamically inserted here -->
+
+                    <!-- Video Section -->
+                    <div class="video-container">
+                        <video controls width="100%">
+                            <source src="Nebula_SoundReel_RoughCut_SmallRatio.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </section>
 
@@ -469,21 +486,6 @@
             flagshipProjectsList.style.display = 'block';
             otherProjectsList.style.display = 'block';
             codeSnippetsList.style.display = 'block';
-
-            if (codeSnippetsList) {
-                const codeSnippetText = '(REPLACE THIS SECTION)';
-
-                const snippetElement = document.createElement('div');
-                snippetElement.className = 'code-snippet';
-
-                const codeElement = document.createElement('code');
-                codeElement.textContent = codeSnippetText;
-
-                snippetElement.appendChild(codeElement);
-                codeSnippetsList.appendChild(snippetElement);
-            } else {
-                console.log('The element with ID "code-snippets-list" was not found.');
-            }
 
             document.getElementById('toggle-skills').addEventListener('click', function () {
                 if (skillsList.style.display === 'none' || skillsList.style.display === '') {
